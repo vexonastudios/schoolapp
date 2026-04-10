@@ -1,0 +1,428 @@
+{
+  "grade": 5,
+  "grade_label": "5th Grade",
+  "total_units": 20,
+  "words_per_unit": 15,
+  "units": [
+    {
+      "unit": 1,
+      "title": "Prefixes: re-, un-, mis-",
+      "words": [
+        {"word":"rebuild","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"re-","definition":"to build again","sentence":"Workers had to rebuild the fence after the storm."},
+        {"word":"uncover","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"un-","definition":"to remove a cover from; to reveal","sentence":"The class was eager to uncover the mystery."},
+        {"word":"mistake","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"mis-","definition":"an error or wrong action","sentence":"Everyone makes a mistake from time to time."},
+        {"word":"rewrite","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"re-","definition":"to write again","sentence":"My teacher asked me to rewrite the last paragraph."},
+        {"word":"unfair","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"un-","definition":"not just or equal","sentence":"It would be unfair to give one team extra time."},
+        {"word":"mislead","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"mis-","definition":"to lead someone in the wrong direction or into error","sentence":"A rumor can mislead people very quickly."},
+        {"word":"replace","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"re-","definition":"to put something new in the place of something old","sentence":"We had to replace the broken window."},
+        {"word":"untidy","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"un-","definition":"not neat or orderly","sentence":"His desk looked untidy after the project."},
+        {"word":"misjudge","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"mis-","definition":"to judge wrongly","sentence":"Do not misjudge someone before knowing the full story."},
+        {"word":"review","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"re-","definition":"to study again or look over carefully","sentence":"We used class time to review the lesson."},
+        {"word":"unable","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"un-","definition":"not able","sentence":"She was unable to attend the game."},
+        {"word":"misprint","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"mis-","definition":"a printing error","sentence":"The newspaper contained a small misprint."},
+        {"word":"return","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"re-","definition":"to come or go back","sentence":"Please return the library book by Friday."},
+        {"word":"uneven","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"un-","definition":"not level or smooth","sentence":"Be careful walking on the uneven path."},
+        {"word":"misread","difficulty":"grade_5","unit":1,"type":"prefix","pattern":"mis-","definition":"to read something incorrectly","sentence":"I misread the directions and turned left too soon."}
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Prefixes: dis-, pre-, non-",
+      "words": [
+        {"word":"disagree","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"dis-","definition":"to have a different opinion","sentence":"Friends may disagree and still be kind to each other."},
+        {"word":"disappear","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"dis-","definition":"to vanish from sight","sentence":"The rabbit seemed to disappear into the tall grass."},
+        {"word":"preview","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"pre-","definition":"a view or showing beforehand","sentence":"We watched a short preview of the movie."},
+        {"word":"preheat","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"pre-","definition":"to heat in advance","sentence":"Always preheat the oven before baking."},
+        {"word":"nonstop","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"non-","definition":"without stopping","sentence":"The baby cried almost nonstop during the trip."},
+        {"word":"nonsense","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"non-","definition":"words or ideas that make no sense","sentence":"That silly story was pure nonsense."},
+        {"word":"disconnect","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"dis-","definition":"to separate or break a connection","sentence":"Please disconnect the charger when the tablet is full."},
+        {"word":"prevent","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"pre-","definition":"to stop something from happening","sentence":"A helmet can help prevent injury."},
+        {"word":"nonliving","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"non-","definition":"not alive","sentence":"Rocks are nonliving things."},
+        {"word":"disobey","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"dis-","definition":"to refuse to obey","sentence":"It is wrong to disobey clear safety rules."},
+        {"word":"prepare","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"pre-","definition":"to get ready beforehand","sentence":"We prepare our backpacks the night before school."},
+        {"word":"nonfiction","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"non-","definition":"writing that tells facts and real events","sentence":"She enjoys reading nonfiction about animals."},
+        {"word":"dishonest","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"dis-","definition":"not truthful","sentence":"It is dishonest to copy someone else's homework."},
+        {"word":"prepaid","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"pre-","definition":"paid in advance","sentence":"We used a prepaid card for the trip."},
+        {"word":"nonmetal","difficulty":"grade_5","unit":2,"type":"prefix","pattern":"non-","definition":"an element or material that is not a metal","sentence":"Sulfur is a nonmetal studied in science class."}
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Suffixes: -ful, -less, -ness",
+      "words": [
+        {"word":"hopeful","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ful","definition":"full of hope","sentence":"The team felt hopeful before the final game."},
+        {"word":"careless","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-less","definition":"not careful","sentence":"A careless step can cause a fall."},
+        {"word":"kindness","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ness","definition":"the quality of being kind","sentence":"Her kindness made the new student feel welcome."},
+        {"word":"thankful","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ful","definition":"grateful","sentence":"We are thankful for the help we received."},
+        {"word":"fearless","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-less","definition":"without fear; very brave","sentence":"The fearless rescuer ran into the smoke."},
+        {"word":"darkness","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ness","definition":"the state of being dark","sentence":"The flashlight cut through the darkness."},
+        {"word":"useful","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ful","definition":"helpful or practical","sentence":"This chart is useful for studying science terms."},
+        {"word":"speechless","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-less","definition":"unable to speak because of surprise or emotion","sentence":"I was speechless when I saw the giant waterfall."},
+        {"word":"goodness","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ness","definition":"moral excellence or kindness","sentence":"The story showed the goodness of helping others."},
+        {"word":"helpful","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ful","definition":"giving help","sentence":"Our neighbor was helpful during the move."},
+        {"word":"restless","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-less","definition":"unable to rest or stay still","sentence":"The puppy grew restless before its walk."},
+        {"word":"neatness","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ness","definition":"the quality of being neat","sentence":"Her neatness made the poster easy to read."},
+        {"word":"joyful","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ful","definition":"full of joy","sentence":"The children gave a joyful shout."},
+        {"word":"harmless","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-less","definition":"not able to cause harm","sentence":"The gardener said the snake was harmless."},
+        {"word":"sadness","difficulty":"grade_5","unit":3,"type":"suffix","pattern":"-ness","definition":"the feeling of being sad","sentence":"Music can sometimes express deep sadness."}
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "Suffixes: -er, -or, -ist, -ian",
+      "words": [
+        {"word":"teacher","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-er","definition":"a person who teaches","sentence":"My teacher explained the lesson clearly."},
+        {"word":"actor","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-or","definition":"a person who performs in plays or movies","sentence":"The actor practiced his lines every day."},
+        {"word":"artist","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ist","definition":"a person who creates art","sentence":"The artist painted a colorful mural."},
+        {"word":"musician","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ian","definition":"a person who plays music","sentence":"The musician tuned her violin before the concert."},
+        {"word":"driver","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-er","definition":"a person who drives a vehicle","sentence":"The driver stopped at the red light."},
+        {"word":"sailor","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-or","definition":"a person who works on or sails a ship","sentence":"The sailor watched the dark clouds gather."},
+        {"word":"dentist","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ist","definition":"a person who cares for teeth","sentence":"The dentist checked for cavities."},
+        {"word":"librarian","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ian","definition":"a person who works in a library","sentence":"The librarian helped us find a history book."},
+        {"word":"farmer","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-er","definition":"a person who grows crops or raises animals","sentence":"The farmer woke before sunrise."},
+        {"word":"inventor","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-or","definition":"a person who creates something new","sentence":"The inventor sketched a clever machine."},
+        {"word":"scientist","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ist","definition":"a person who studies science","sentence":"The scientist recorded the test results."},
+        {"word":"magician","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ian","definition":"a performer who does tricks that seem like magic","sentence":"The magician pulled a coin from behind my ear."},
+        {"word":"runner","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-er","definition":"a person who runs","sentence":"The runner trained for the race every morning."},
+        {"word":"visitor","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-or","definition":"a person who comes to see a place or person","sentence":"Each visitor signed the guest book."},
+        {"word":"electrician","difficulty":"grade_5","unit":4,"type":"suffix","pattern":"-ian","definition":"a person who works with electrical wiring","sentence":"The electrician repaired the broken outlet."}
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "Roots: port, tract, spect",
+      "words": [
+        {"word":"transport","difficulty":"grade_5","unit":5,"type":"root","pattern":"port","definition":"to carry from one place to another","sentence":"Buses transport students to school."},
+        {"word":"portable","difficulty":"grade_5","unit":5,"type":"root","pattern":"port","definition":"easy to carry or move","sentence":"A portable speaker is handy on trips."},
+        {"word":"import","difficulty":"grade_5","unit":5,"type":"root","pattern":"port","definition":"to bring goods into a country","sentence":"Some stores import fruit from other countries."},
+        {"word":"tractor","difficulty":"grade_5","unit":5,"type":"root","pattern":"tract","definition":"a powerful farm vehicle used for pulling","sentence":"The tractor moved slowly across the field."},
+        {"word":"attract","difficulty":"grade_5","unit":5,"type":"root","pattern":"tract","definition":"to pull toward","sentence":"Bright flowers attract bees."},
+        {"word":"subtract","difficulty":"grade_5","unit":5,"type":"root","pattern":"tract","definition":"to take one number away from another","sentence":"We subtract to find the difference."},
+        {"word":"inspect","difficulty":"grade_5","unit":5,"type":"root","pattern":"spect","definition":"to look at carefully","sentence":"Please inspect your work before turning it in."},
+        {"word":"spectator","difficulty":"grade_5","unit":5,"type":"root","pattern":"spect","definition":"a person who watches an event","sentence":"Every spectator cheered at the finish line."},
+        {"word":"respect","difficulty":"grade_5","unit":5,"type":"root","pattern":"spect","definition":"honor shown to someone or something","sentence":"We should show respect to our elders."},
+        {"word":"reporter","difficulty":"grade_5","unit":5,"type":"root","pattern":"port","definition":"a person who gathers and tells news","sentence":"The reporter interviewed the mayor."},
+        {"word":"contract","difficulty":"grade_5","unit":5,"type":"root","pattern":"tract","definition":"a legal agreement","sentence":"Both sides signed the contract."},
+        {"word":"prospect","difficulty":"grade_5","unit":5,"type":"root","pattern":"spect","definition":"something expected or hoped for in the future","sentence":"The prospect of summer vacation made everyone smile."},
+        {"word":"export","difficulty":"grade_5","unit":5,"type":"root","pattern":"port","definition":"to send goods out to another country","sentence":"The company will export corn overseas."},
+        {"word":"distract","difficulty":"grade_5","unit":5,"type":"root","pattern":"tract","definition":"to draw attention away","sentence":"Noise can distract me while I read."},
+        {"word":"inspection","difficulty":"grade_5","unit":5,"type":"root","pattern":"spect","definition":"a careful examination","sentence":"The car passed its safety inspection."}
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "Roots: dict, scrib/script, rupt",
+      "words": [
+        {"word":"predict","difficulty":"grade_5","unit":6,"type":"root","pattern":"dict","definition":"to say ahead of time what will happen","sentence":"Meteorologists predict tomorrow's weather."},
+        {"word":"dictionary","difficulty":"grade_5","unit":6,"type":"root","pattern":"dict","definition":"a book that gives word meanings","sentence":"I used a dictionary to check the spelling."},
+        {"word":"describe","difficulty":"grade_5","unit":6,"type":"root","pattern":"scrib/script","definition":"to tell about in words","sentence":"Can you describe the animal you saw?"},
+        {"word":"manuscript","difficulty":"grade_5","unit":6,"type":"root","pattern":"scrib/script","definition":"an author's written work before publication","sentence":"The writer sent her manuscript to the editor."},
+        {"word":"eruption","difficulty":"grade_5","unit":6,"type":"root","pattern":"rupt","definition":"a bursting out, especially from a volcano","sentence":"The eruption sent ash into the sky."},
+        {"word":"rupture","difficulty":"grade_5","unit":6,"type":"root","pattern":"rupt","definition":"a break or burst","sentence":"A pipe rupture flooded the basement."},
+        {"word":"dictation","difficulty":"grade_5","unit":6,"type":"root","pattern":"dict","definition":"words spoken aloud for someone else to write","sentence":"Our teacher gave a short dictation exercise."},
+        {"word":"verdict","difficulty":"grade_5","unit":6,"type":"root","pattern":"dict","definition":"a decision, especially in court","sentence":"The jury reached a verdict after long discussion."},
+        {"word":"scripture","difficulty":"grade_5","unit":6,"type":"root","pattern":"scrib/script","definition":"sacred writings","sentence":"They read a passage of Scripture together."},
+        {"word":"inscription","difficulty":"grade_5","unit":6,"type":"root","pattern":"scrib/script","definition":"words written or carved on something","sentence":"The old bell had an inscription on its side."},
+        {"word":"bankrupt","difficulty":"grade_5","unit":6,"type":"root","pattern":"rupt","definition":"unable to pay debts","sentence":"The small shop went bankrupt after many losses."},
+        {"word":"corrupt","difficulty":"grade_5","unit":6,"type":"root","pattern":"rupt","definition":"dishonest or spoiled in character","sentence":"The story warned against corrupt leaders."},
+        {"word":"contradict","difficulty":"grade_5","unit":6,"type":"root","pattern":"dict","definition":"to say the opposite of","sentence":"The second witness did not contradict the first."},
+        {"word":"postscript","difficulty":"grade_5","unit":6,"type":"root","pattern":"scrib/script","definition":"a note added after a letter ends","sentence":"She added a postscript at the bottom of the card."},
+        {"word":"disrupt","difficulty":"grade_5","unit":6,"type":"root","pattern":"rupt","definition":"to interrupt or throw into disorder","sentence":"The loud alarm will disrupt the meeting."}
+      ]
+    },
+    {
+      "unit": 7,
+      "title": "Long Vowel Patterns",
+      "words": [
+        {"word":"freedom","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long e","definition":"the state of being free","sentence":"Freedom is a gift many people value deeply."},
+        {"word":"reason","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long e","definition":"a cause or explanation","sentence":"Tell me the reason you were late."},
+        {"word":"coast","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"the land along the sea","sentence":"We drove along the coast at sunset."},
+        {"word":"floating","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"resting or moving on top of water","sentence":"Leaves were floating on the pond."},
+        {"word":"needle","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long e","definition":"a thin, pointed tool used for sewing","sentence":"Grandma threaded the needle carefully."},
+        {"word":"silent","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long i","definition":"making no sound","sentence":"The room became silent during the test."},
+        {"word":"program","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"a planned series of activities or instructions","sentence":"The concert program listed every song."},
+        {"word":"broken","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"damaged and no longer whole","sentence":"The broken toy could not be fixed easily."},
+        {"word":"season","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long e","definition":"one of the four parts of the year","sentence":"Spring is my favorite season."},
+        {"word":"between","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long e","definition":"in the space separating two things","sentence":"The ball rolled between the chairs."},
+        {"word":"hotel","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"a place where travelers stay","sentence":"We checked into the hotel after dark."},
+        {"word":"moment","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"a very short time","sentence":"Wait a moment while I tie my shoe."},
+        {"word":"agree","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long e","definition":"to have the same opinion","sentence":"We agree that the hike was worth it."},
+        {"word":"coastal","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long o","definition":"near the coast","sentence":"Sea birds are common in coastal towns."},
+        {"word":"pilot","difficulty":"grade_5","unit":7,"type":"vowel_pattern","pattern":"long i","definition":"a person who flies an aircraft","sentence":"The pilot announced that we would land soon."}
+      ]
+    },
+    {
+      "unit": 8,
+      "title": "Difficult Consonants and Blends",
+      "words": [
+        {"word":"knuckle","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent k","definition":"a finger joint","sentence":"He scraped his knuckle on the wall."},
+        {"word":"wrist","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"wr-","definition":"the joint between the hand and arm","sentence":"She wore a watch on her wrist."},
+        {"word":"crumb","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent b","definition":"a small piece of bread or cake","sentence":"A crumb fell onto the table."},
+        {"word":"castle","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent t","definition":"a large fortified building","sentence":"The ancient castle stood on the hill."},
+        {"word":"honest","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent h","definition":"truthful and fair","sentence":"An honest answer is always best."},
+        {"word":"answer","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent w","definition":"a response to a question","sentence":"Raise your hand if you know the answer."},
+        {"word":"listen","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent t","definition":"to pay attention with the ears","sentence":"Please listen carefully to the instructions."},
+        {"word":"wrench","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"wr-","definition":"a tool used for gripping and turning","sentence":"Dad used a wrench to tighten the bolt."},
+        {"word":"doubt","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent b","definition":"a feeling of uncertainty","sentence":"I do not doubt her honesty."},
+        {"word":"climb","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent b","definition":"to go upward","sentence":"We climb the stairs every morning."},
+        {"word":"ghost","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"gh-","definition":"the spirit of a dead person in stories","sentence":"The children told a ghost story around the fire."},
+        {"word":"muscle","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"sc","definition":"body tissue used for movement","sentence":"Exercise helps strengthen each muscle."},
+        {"word":"autumn","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent n","definition":"the season between summer and winter","sentence":"Leaves turn bright colors in autumn."},
+        {"word":"thistle","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"th-","definition":"a prickly wild plant","sentence":"A thistle grew beside the fence."},
+        {"word":"gnaw","difficulty":"grade_5","unit":8,"type":"consonant_pattern","pattern":"silent g","definition":"to bite or chew steadily","sentence":"The mouse began to gnaw the cardboard box."}
+      ]
+    },
+    {
+      "unit": 9,
+      "title": "Homophones",
+      "words": [
+        {"word":"their","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"their/there/they're","definition":"belonging to them","sentence":"Their backpacks were lined up by the door."},
+        {"word":"there","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"their/there/they're","definition":"in or at that place","sentence":"Please set the basket over there."},
+        {"word":"they're","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"their/there/they're","definition":"they are","sentence":"They're ready to begin the race."},
+        {"word":"to","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"to/too/two","definition":"in the direction of","sentence":"We walked to the park after lunch."},
+        {"word":"too","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"to/too/two","definition":"also; more than enough","sentence":"I want to come too."},
+        {"word":"two","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"to/too/two","definition":"the number 2","sentence":"Two birds landed on the fence."},
+        {"word":"your","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"your/you're","definition":"belonging to you","sentence":"Is this your notebook?"},
+        {"word":"you're","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"your/you're","definition":"you are","sentence":"You're doing a great job."},
+        {"word":"peace","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"peace/piece","definition":"calm; freedom from conflict","sentence":"The family prayed for peace."},
+        {"word":"piece","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"peace/piece","definition":"a part of something","sentence":"Would you like a piece of pie?"},
+        {"word":"heard","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"heard/herd","definition":"past tense of hear","sentence":"I heard thunder in the distance."},
+        {"word":"herd","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"heard/herd","definition":"a group of animals","sentence":"A herd of cattle crossed the road."},
+        {"word":"waist","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"waist/waste","definition":"the middle part of the body","sentence":"The belt fit around his waist."},
+        {"word":"waste","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"waist/waste","definition":"to use carelessly; garbage","sentence":"Do not waste clean water."},
+        {"word":"scene","difficulty":"grade_5","unit":9,"type":"homophone","pattern":"scene/seen","definition":"a view or part of a play","sentence":"The mountain scene looked beautiful."}
+      ]
+    },
+    {
+      "unit": 10,
+      "title": "Commonly Confused Words",
+      "words": [
+        {"word":"accept","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"accept/except","definition":"to receive willingly","sentence":"Please accept this gift."},
+        {"word":"except","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"accept/except","definition":"not including","sentence":"Everyone came except Leo."},
+        {"word":"affect","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"affect/effect","definition":"to influence","sentence":"Rain can affect our picnic plans."},
+        {"word":"effect","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"affect/effect","definition":"a result","sentence":"The new rule had a good effect on behavior."},
+        {"word":"principal","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"principal/principle","definition":"the head of a school","sentence":"The principal greeted students at the door."},
+        {"word":"principle","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"principal/principle","definition":"a basic truth or rule","sentence":"Honesty is an important principle."},
+        {"word":"weather","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"weather/whether","definition":"the condition of the air outside","sentence":"The weather turned cool by evening."},
+        {"word":"whether","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"weather/whether","definition":"if","sentence":"I do not know whether it will rain."},
+        {"word":"quiet","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"quiet/quite","definition":"making little or no noise","sentence":"The library must stay quiet."},
+        {"word":"quite","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"quiet/quite","definition":"very; fairly","sentence":"That puzzle was quite difficult."},
+        {"word":"among","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"among/between","definition":"in the middle of a group","sentence":"The teacher walked among the desks."},
+        {"word":"between","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"among/between","definition":"in the space separating two things","sentence":"The bench sat between two trees."},
+        {"word":"borrow","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"borrow/lend","definition":"to take and use for a time","sentence":"May I borrow your ruler?"},
+        {"word":"lend","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"borrow/lend","definition":"to give for a time","sentence":"I can lend you a pencil."},
+        {"word":"farther","difficulty":"grade_5","unit":10,"type":"confused_word","pattern":"farther/further","definition":"more distant in space","sentence":"The trail goes farther than we expected."}
+      ]
+    },
+    {
+      "unit": 11,
+      "title": "Compound Words",
+      "words": [
+        {"word":"sunlight","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"light from the sun","sentence":"Sunlight streamed through the window."},
+        {"word":"football","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"a game played with an oval ball","sentence":"My brother practices football after school."},
+        {"word":"however","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"in spite of that; nevertheless","sentence":"It looked cloudy; however, the rain never came."},
+        {"word":"grandmother","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"the mother of one's parent","sentence":"My grandmother tells wonderful stories."},
+        {"word":"rainstorm","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"a storm with heavy rain","sentence":"The rainstorm flooded the street."},
+        {"word":"notebook","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"a book of blank or lined pages for writing","sentence":"She wrote the assignment in her notebook."},
+        {"word":"somewhere","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"in or to some place","sentence":"I know I left my keys somewhere nearby."},
+        {"word":"outside","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"on or to the outer side","sentence":"The dog waited outside the door."},
+        {"word":"yourself","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"your own self","sentence":"You should be proud of yourself."},
+        {"word":"railroad","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"a track for trains","sentence":"The railroad crosses the river just ahead."},
+        {"word":"homemade","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"made at home","sentence":"We ate homemade bread with soup."},
+        {"word":"without","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"not having; lacking","sentence":"He left the house without his hat."},
+        {"word":"basketball","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"a game played by throwing a ball through a hoop","sentence":"Basketball practice starts at four o'clock."},
+        {"word":"afternoon","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"the part of the day after noon","sentence":"We will visit in the afternoon."},
+        {"word":"upon","difficulty":"grade_5","unit":11,"type":"compound","pattern":"closed compound","definition":"on; up on","sentence":"The cat jumped upon the table."}
+      ]
+    },
+    {
+      "unit": 12,
+      "title": "Open Compound Words",
+      "words": [
+        {"word":"ice cream","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a frozen sweet dessert","sentence":"We shared chocolate ice cream after dinner."},
+        {"word":"post office","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a place where mail is handled","sentence":"Dad stopped at the post office before work."},
+        {"word":"middle school","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a school for grades between elementary and high school","sentence":"My cousin starts middle school next fall."},
+        {"word":"full moon","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"the moon when its whole face is lit","sentence":"The full moon shone over the lake."},
+        {"word":"living room","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a room in a house used for relaxing or visiting","sentence":"We played a board game in the living room."},
+        {"word":"peanut butter","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a spread made from ground peanuts","sentence":"She packed a peanut butter sandwich."},
+        {"word":"high school","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a school for older students before college","sentence":"My brother plays trumpet in the high school band."},
+        {"word":"swimming pool","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a pool made for swimming","sentence":"The swimming pool closes at dusk."},
+        {"word":"front door","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"the main door of a building","sentence":"Please wipe your shoes at the front door."},
+        {"word":"real estate","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"land and buildings considered as property","sentence":"Her aunt works in real estate."},
+        {"word":"card table","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a small folding table often used for games","sentence":"We set up the puzzle on the card table."},
+        {"word":"science fiction","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"stories based on imagined science and future events","sentence":"He likes science fiction more than mysteries."},
+        {"word":"rain forest","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a dense forest with much rainfall","sentence":"Many colorful birds live in the rain forest."},
+        {"word":"traffic light","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a signal that controls road traffic","sentence":"The traffic light turned green."},
+        {"word":"cell phone","difficulty":"grade_5","unit":12,"type":"compound","pattern":"open compound","definition":"a portable telephone","sentence":"Mom keeps her cell phone in her bag."}
+      ]
+    },
+    {
+      "unit": 13,
+      "title": "Contractions",
+      "words": [
+        {"word":"can't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"can not","definition":"cannot","sentence":"I can't stay out late tonight."},
+        {"word":"won't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"will not","definition":"will not","sentence":"The car won't start in the cold."},
+        {"word":"shouldn't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"should not","definition":"should not","sentence":"You shouldn't run in the hallway."},
+        {"word":"they'll","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"they will","definition":"they will","sentence":"They'll arrive before noon."},
+        {"word":"we're","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"we are","definition":"we are","sentence":"We're ready for the spelling test."},
+        {"word":"it's","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"it is","definition":"it is","sentence":"It's almost time for lunch."},
+        {"word":"I'd","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"I would","definition":"I would","sentence":"I'd like to try the new game."},
+        {"word":"you've","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"you have","definition":"you have","sentence":"You've done a careful job on this project."},
+        {"word":"didn't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"did not","definition":"did not","sentence":"I didn't hear the bell ring."},
+        {"word":"doesn't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"does not","definition":"does not","sentence":"This key doesn't fit the lock."},
+        {"word":"isn't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"is not","definition":"is not","sentence":"The answer isn't on the board."},
+        {"word":"couldn't","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"could not","definition":"could not","sentence":"We couldn't see through the fog."},
+        {"word":"she's","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"she is","definition":"she is","sentence":"She's the captain of the team."},
+        {"word":"that's","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"that is","definition":"that is","sentence":"That's my favorite song."},
+        {"word":"who's","difficulty":"grade_5","unit":13,"type":"contraction","pattern":"who is","definition":"who is","sentence":"Who's knocking at the door?"}
+      ]
+    },
+    {
+      "unit": 14,
+      "title": "Plurals and Possessives",
+      "words": [
+        {"word":"cities","difficulty":"grade_5","unit":14,"type":"plural","pattern":"y to ies","definition":"more than one city","sentence":"Many cities hold summer festivals."},
+        {"word":"families","difficulty":"grade_5","unit":14,"type":"plural","pattern":"y to ies","definition":"more than one family","sentence":"Several families came to the picnic."},
+        {"word":"knives","difficulty":"grade_5","unit":14,"type":"plural","pattern":"f to ves","definition":"more than one knife","sentence":"The chef kept the knives sharp."},
+        {"word":"wolves","difficulty":"grade_5","unit":14,"type":"plural","pattern":"f to ves","definition":"more than one wolf","sentence":"The wolves howled at night."},
+        {"word":"potatoes","difficulty":"grade_5","unit":14,"type":"plural","pattern":"add es","definition":"more than one potato","sentence":"We planted potatoes in the garden."},
+        {"word":"tomatoes","difficulty":"grade_5","unit":14,"type":"plural","pattern":"add es","definition":"more than one tomato","sentence":"Ripe tomatoes hung from the vine."},
+        {"word":"children","difficulty":"grade_5","unit":14,"type":"plural","pattern":"irregular plural","definition":"more than one child","sentence":"The children lined up quietly."},
+        {"word":"geese","difficulty":"grade_5","unit":14,"type":"plural","pattern":"irregular plural","definition":"more than one goose","sentence":"A flock of geese crossed the sky."},
+        {"word":"women","difficulty":"grade_5","unit":14,"type":"plural","pattern":"irregular plural","definition":"more than one woman","sentence":"The women carried baskets to the market."},
+        {"word":"babies","difficulty":"grade_5","unit":14,"type":"plural","pattern":"y to ies","definition":"more than one baby","sentence":"The babies slept in their cribs."},
+        {"word":"teacher's","difficulty":"grade_5","unit":14,"type":"possessive","pattern":"singular possessive","definition":"belonging to one teacher","sentence":"The teacher's desk was neatly arranged."},
+        {"word":"teachers'","difficulty":"grade_5","unit":14,"type":"possessive","pattern":"plural possessive","definition":"belonging to more than one teacher","sentence":"The teachers' lounge was down the hall."},
+        {"word":"class's","difficulty":"grade_5","unit":14,"type":"possessive","pattern":"singular possessive ending in s","definition":"belonging to one class","sentence":"Our class's project won first place."},
+        {"word":"boys'","difficulty":"grade_5","unit":14,"type":"possessive","pattern":"plural possessive","definition":"belonging to more than one boy","sentence":"The boys' bicycles were parked outside."},
+        {"word":"lady's","difficulty":"grade_5","unit":14,"type":"possessive","pattern":"singular possessive","definition":"belonging to one lady","sentence":"The lady's hat blew away in the wind."}
+      ]
+    },
+    {
+      "unit": 15,
+      "title": "Silent Letters",
+      "words": [
+        {"word":"dumb","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent b","definition":"unable to speak; foolish in another meaning","sentence":"In the old story, the man was dumb until he was healed."},
+        {"word":"thumb","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent b","definition":"the short thick finger on the hand","sentence":"He gave a thumbs-up with his thumb."},
+        {"word":"sign","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent g","definition":"a notice or symbol with information","sentence":"The sign pointed toward the campground."},
+        {"word":"design","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent g","definition":"to plan or create","sentence":"She helped design the class banner."},
+        {"word":"wreck","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent w","definition":"to ruin badly; a crash","sentence":"The storm could wreck the picnic."},
+        {"word":"knee","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent k","definition":"the joint in the middle of the leg","sentence":"He scraped his knee on the sidewalk."},
+        {"word":"know","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent k","definition":"to understand or be aware of","sentence":"I know the answer to that question."},
+        {"word":"lamb","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent b","definition":"a young sheep","sentence":"The lamb followed its mother across the field."},
+        {"word":"whistle","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent t","definition":"to make a clear high sound","sentence":"He likes to whistle while he works."},
+        {"word":"column","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent n","definition":"a vertical line or pillar","sentence":"Write each number in the correct column."},
+        {"word":"debt","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent b","definition":"money that is owed","sentence":"The farmer worked hard to pay his debt."},
+        {"word":"island","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent s","definition":"land surrounded by water","sentence":"The boat stopped at a tiny island."},
+        {"word":"half","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent l","definition":"one of two equal parts","sentence":"I ate half of the sandwich."},
+        {"word":"talk","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent l","definition":"to speak","sentence":"We stayed after class to talk."},
+        {"word":"solemn","difficulty":"grade_5","unit":15,"type":"silent_letter","pattern":"silent n","definition":"serious and thoughtful","sentence":"A solemn silence filled the church."}
+      ]
+    },
+    {
+      "unit": 16,
+      "title": "Academic Vocabulary",
+      "words": [
+        {"word":"observe","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"to watch carefully","sentence":"Scientists observe changes during an experiment."},
+        {"word":"compare","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"to look at how things are alike","sentence":"We compare the two stories in class."},
+        {"word":"contrast","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"to show how things are different","sentence":"The essay will contrast city life with farm life."},
+        {"word":"conclude","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"to decide after thinking or studying","sentence":"From the data, we conclude that plants need light."},
+        {"word":"evidence","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"facts or signs that show something is true","sentence":"Good writers support their ideas with evidence."},
+        {"word":"estimate","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"an educated guess","sentence":"Please estimate how many beans are in the jar."},
+        {"word":"formula","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"a rule or expression used in math or science","sentence":"We used a formula to find the area."},
+        {"word":"process","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"a series of steps","sentence":"Photosynthesis is a process that helps plants make food."},
+        {"word":"region","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"an area of land","sentence":"This region gets heavy snow each winter."},
+        {"word":"resource","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"something useful that can be drawn on","sentence":"A dictionary is a great resource for writers."},
+        {"word":"result","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"the outcome","sentence":"The result of the test surprised everyone."},
+        {"word":"method","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"a way of doing something","sentence":"Her method for solving the puzzle worked well."},
+        {"word":"typical","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"usual or normal","sentence":"A robin is a typical bird in spring."},
+        {"word":"similar","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"almost the same","sentence":"The twins have similar smiles."},
+        {"word":"variable","difficulty":"grade_5","unit":16,"type":"academic","pattern":"general academic","definition":"something that can change","sentence":"In science, temperature can be a variable."}
+      ]
+    },
+    {
+      "unit": 17,
+      "title": "Descriptive Vocabulary",
+      "words": [
+        {"word":"ancient","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"very old","sentence":"They visited the ruins of an ancient city."},
+        {"word":"brilliant","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"very bright or very clever","sentence":"A brilliant star appeared in the eastern sky."},
+        {"word":"fragile","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"easily broken","sentence":"The fragile vase had to be wrapped carefully."},
+        {"word":"gentle","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"mild and kind","sentence":"She spoke in a gentle voice."},
+        {"word":"graceful","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"moving in a smooth and lovely way","sentence":"The graceful swan glided across the lake."},
+        {"word":"massive","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"very large and heavy","sentence":"A massive oak tree shaded the yard."},
+        {"word":"narrow","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"not wide","sentence":"We walked along a narrow path."},
+        {"word":"obedient","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"willing to obey","sentence":"The obedient dog sat by its owner."},
+        {"word":"precious","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"very valuable or dear","sentence":"That necklace is a precious family treasure."},
+        {"word":"sturdy","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"strong and solid","sentence":"The sturdy table held all the books."},
+        {"word":"timid","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"shy or easily frightened","sentence":"The timid kitten hid behind the chair."},
+        {"word":"vigorous","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"full of strength and energy","sentence":"They took a vigorous walk around the lake."},
+        {"word":"weary","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"very tired","sentence":"After the long hike, we felt weary."},
+        {"word":"distant","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"far away","sentence":"We heard distant thunder in the hills."},
+        {"word":"eager","difficulty":"grade_5","unit":17,"type":"descriptive","pattern":"adjective","definition":"ready and excited","sentence":"The students were eager to open their books."}
+      ]
+    },
+    {
+      "unit": 18,
+      "title": "Proofreading Challenge Words",
+      "words": [
+        {"word":"separate","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"to divide or keep apart","sentence":"Please separate the papers into two stacks."},
+        {"word":"favorite","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"liked the most","sentence":"Blue is her favorite color."},
+        {"word":"beginning","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"the start","sentence":"Read the story from the beginning."},
+        {"word":"business","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"work involving buying or selling","sentence":"Her uncle owns a small business."},
+        {"word":"grammar","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"the rules of language","sentence":"We studied grammar during English class."},
+        {"word":"sentence","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"a group of words that expresses a complete thought","sentence":"Write one clear sentence about the picture."},
+        {"word":"punctual","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"arriving on time","sentence":"Being punctual shows respect for others."},
+        {"word":"capital","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"a main city; also an uppercase letter","sentence":"Austin is the capital of Texas."},
+        {"word":"paragraph","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"a group of related sentences","sentence":"Start a new paragraph when the topic changes."},
+        {"word":"address","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"the location of a home or business","sentence":"Write your address at the top of the form."},
+        {"word":"calendar","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"a chart that shows days and months","sentence":"Check the calendar for the field trip date."},
+        {"word":"probably","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"most likely","sentence":"We will probably finish before dark."},
+        {"word":"straight","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"not curved; directly","sentence":"Draw a straight line across the page."},
+        {"word":"though","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"however; even if","sentence":"Though it rained, we still had fun."},
+        {"word":"through","difficulty":"grade_5","unit":18,"type":"challenge","pattern":"frequently misspelled","definition":"from one side to the other","sentence":"Sunlight shone through the window."}
+      ]
+    },
+    {
+      "unit": 19,
+      "title": "Bible Book Abbreviations",
+      "words": [
+        {"word":"Gen.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Genesis","sentence":"Our reading tonight is in Gen. 1."},
+        {"word":"Ex.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Exodus","sentence":"Moses is introduced in Ex. 2."},
+        {"word":"Lev.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Leviticus","sentence":"The memory verse is found in Lev. 19."},
+        {"word":"Num.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Numbers","sentence":"The class turned to Num. 14."},
+        {"word":"Deut.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Deuteronomy","sentence":"The command is repeated in Deut. 6."},
+        {"word":"Josh.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Joshua","sentence":"We read about Jericho in Josh. 6."},
+        {"word":"Judg.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Judges","sentence":"Samson's story appears in Judg. 16."},
+        {"word":"Ruth","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"the book of Ruth","sentence":"Naomi and Ruth are introduced in Ruth 1."},
+        {"word":"1 Sam.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for First Samuel","sentence":"David meets Goliath in 1 Sam. 17."},
+        {"word":"2 Sam.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Second Samuel","sentence":"The kingdom grows in 2 Sam. 5."},
+        {"word":"Ps.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Psalms","sentence":"The shepherd psalm is in Ps. 23."},
+        {"word":"Prov.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Proverbs","sentence":"Wise sayings fill Prov. 3."},
+        {"word":"Isa.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Isaiah","sentence":"A prophecy of the Messiah is in Isa. 53."},
+        {"word":"Matt.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Matthew","sentence":"The Sermon on the Mount begins in Matt. 5."},
+        {"word":"Rom.","difficulty":"grade_5","unit":19,"type":"abbreviation","pattern":"Bible book","definition":"abbreviation for Romans","sentence":"We memorized a verse from Rom. 8."}
+      ]
+    },
+    {
+      "unit": 20,
+      "title": "Review and Challenge Words",
+      "words": [
+        {"word":"beautiful","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"pleasing to the senses","sentence":"The sunset over the lake was beautiful."},
+        {"word":"curiosity","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"a desire to know or learn","sentence":"Curiosity led her to open the old box."},
+        {"word":"responsible","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"able to be trusted to do what is right","sentence":"A responsible student turns in work on time."},
+        {"word":"discovery","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"something found for the first time","sentence":"The fossil was an exciting discovery."},
+        {"word":"knowledge","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"information and understanding gained by learning","sentence":"Reading increases knowledge."},
+        {"word":"impossible","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"not able to be done","sentence":"It seemed impossible to lift the rock alone."},
+        {"word":"adventure","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"an exciting or unusual experience","sentence":"Camping in the mountains felt like an adventure."},
+        {"word":"temperature","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"the measure of heat or cold","sentence":"The temperature dropped overnight."},
+        {"word":"necessary","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"needed or required","sentence":"Water is necessary for life."},
+        {"word":"different","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"not the same","sentence":"Each butterfly had a different pattern."},
+        {"word":"immediately","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"at once","sentence":"Please come inside immediately when you hear thunder."},
+        {"word":"throughout","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"in every part of","sentence":"Music echoed throughout the hall."},
+        {"word":"remember","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"to keep in mind or recall","sentence":"Remember to bring your folder tomorrow."},
+        {"word":"excellent","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"very good","sentence":"She did an excellent job on the report."},
+        {"word":"strength","difficulty":"grade_5","unit":20,"type":"review","pattern":"challenge","definition":"the quality of being strong","sentence":"Practice can build both skill and strength."}
+      ]
+    }
+  ]
+}

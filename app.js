@@ -11,6 +11,9 @@ const GRAMMAR_SUBJECT_ID = "grammar";
 const SPELLING_SKILL_ID = "spelling-core";
 const SPELLING_RECENT_LIMIT = 12;
 const GRAMMAR_RECENT_LIMIT = 10;
+const GRADE_SPELLING_FILES = {
+  "5": "data/grade_5_spelling_units_complete.json",
+};
 const BADGES = [
   { id: "rising-star", title: "Rising Star", requirement: 50, description: "Earn 50 stars" },
   { id: "steady-scholar", title: "Steady Scholar", requirement: 150, description: "Earn 150 stars" },
@@ -33,11 +36,11 @@ const SUBJECTS = [
   {
     id: SPELLING_SUBJECT_ID,
     title: "Spelling",
-    description: "Build spelling lists, word sounds, and encouragement for daily practice.",
+    description: "Practice grade-based spelling lists with spoken words, hints, and guided review.",
     icon: "fa-spell-check",
     status: "Ready Now",
     available: true,
-    highlights: ["Spoken word practice live", "Hints and clues included"],
+    highlights: ["Grade-based lists live", "Hints and clues included"],
   },
   {
     id: GRAMMAR_SUBJECT_ID,
@@ -251,6 +254,7 @@ const state = {
   lastSuccessLine: "",
   recentSpellingWords: [],
   recentGrammarPrompts: [],
+  spellingCurriculumByGrade: {},
   round: { number: 1, solved: 0, target: ROUND_TARGET, completed: false },
   currentProblem: null,
   currentSessionId: null,
@@ -277,7 +281,7 @@ const STATIC_SPEECH = {
   instructions: `Welcome to ${APP_NAME}. First choose or create a learner profile on the home page. Then choose a subject. Math, Spelling, and Grammar are ready now, and more subjects are on the way.`,
   homeGuide: `Welcome to ${APP_NAME}. First choose or create a learner profile. Then pick a subject below. Math, Spelling, and Grammar are ready now.`,
   mathGuide: "Welcome to Math. Select a math skill to work on below. Notice what you last used and what is currently recommended.",
-  spellingGuide: "Welcome to Spelling. Listen to the word, type the spelling, and tap Hint if you want a few letters revealed.",
+  spellingGuide: "Welcome to Spelling. Listen to the word, spell it carefully, and practice words that match your grade level.",
   grammarGuide: "Welcome to Grammar. Choose a grammar skill below. You can practice capitals, punctuation, parts of speech, and sentence fixing.",
   createProfile: (name) => `Profile created for ${name}. Now choose a subject like Math, Spelling, or Grammar.`,
   selectProfile: (name) => `${name} is selected. Now choose a subject like Math, Spelling, or Grammar.`,
@@ -302,7 +306,7 @@ const els = {
   profileFormPanel: document.getElementById("profile-form-panel"),
   profileForm: document.getElementById("profile-form"),
   childName: document.getElementById("child-name"),
-  childAge: document.getElementById("child-age"),
+  childGrade: document.getElementById("child-grade"),
   avatarColor: document.getElementById("avatar-color"),
   profilesList: document.getElementById("profiles-list"),
   refreshProfiles: document.getElementById("refresh-profiles"),
@@ -335,6 +339,7 @@ const els = {
   activityCard: document.getElementById("activity-card"),
   activityList: document.getElementById("activity-list"),
   voiceStatus: document.getElementById("voice-status"),
+  difficultyField: document.getElementById("difficulty-field"),
   difficulty: document.getElementById("difficulty"),
   lessonTitle: document.getElementById("lesson-title"),
   lessonBadge: document.getElementById("lesson-badge"),
@@ -633,6 +638,77 @@ function getRecordSubjectId(record) {
   return record.subjectId || MATH_SUBJECT_ID;
 }
 
+function normalizeGradeValue(value) {
+  if (value === undefined || value === null || value === "") {
+    return null;
+  }
+
+  const normalized = String(value).trim().toUpperCase();
+  if (normalized === "K") {
+    return "K";
+  }
+
+  const gradeNumber = Number(normalized);
+  if (!Number.isInteger(gradeNumber) || gradeNumber < 1 || gradeNumber > 12) {
+    return null;
+  }
+
+  return String(gradeNumber);
+}
+
+function inferGradeFromAge(age) {
+  const numericAge = Number(age);
+  if (!Number.isFinite(numericAge) || numericAge <= 5) {
+    return "K";
+  }
+
+  return String(Math.max(1, Math.min(12, numericAge - 5)));
+}
+
+function formatGradeLabel(grade) {
+  const normalized = normalizeGradeValue(grade);
+  if (!normalized) {
+    return "Grade not set";
+  }
+
+  if (normalized === "K") {
+    return "Kindergarten";
+  }
+
+  const gradeNumber = Number(normalized);
+  const teen = gradeNumber % 100;
+  const suffix = teen >= 11 && teen <= 13
+    ? "th"
+    : gradeNumber % 10 === 1
+      ? "st"
+      : gradeNumber % 10 === 2
+        ? "nd"
+        : gradeNumber % 10 === 3
+          ? "rd"
+          : "th";
+
+  return `${gradeNumber}${suffix} Grade`;
+}
+
+function getProfileGrade(profile) {
+  if (!profile) {
+    return "K";
+  }
+
+  return normalizeGradeValue(profile.grade) || inferGradeFromAge(profile.age);
+}
+
+function normalizeProfile(profile) {
+  if (!profile) {
+    return profile;
+  }
+
+  return {
+    ...profile,
+    grade: getProfileGrade(profile),
+  };
+}
+
 function getDifficultyWords(difficulty) {
   return SPELLING_WORDS[difficulty] || SPELLING_WORDS.medium;
 }
@@ -642,15 +718,58 @@ function getRecommendedSpellingDifficulty(profile = state.activeProfile) {
     return "medium";
   }
 
-  if (profile.age <= 7) {
+  const grade = getProfileGrade(profile);
+  if (grade === "K" || Number(grade) <= 2) {
     return "easy";
   }
 
-  if (profile.age <= 10) {
+  if (Number(grade) <= 4) {
     return "medium";
   }
 
   return "hard";
+}
+
+function getSpellingCurriculumForGrade(grade) {
+  const normalized = normalizeGradeValue(grade);
+  return normalized ? state.spellingCurriculumByGrade[normalized] || null : null;
+}
+
+function getSpellingEntriesForGrade(grade) {
+  const normalized = normalizeGradeValue(grade) || "5";
+  const curriculum = getSpellingCurriculumForGrade(normalized);
+
+  if (curriculum) {
+    return curriculum.units.flatMap((unit) => unit.words
+      .filter((entry) => /^[A-Za-z]+$/.test(entry.word))
+      .map((entry) => ({
+        ...entry,
+        clue: entry.definition,
+        category: unit.title,
+        unitTitle: unit.title,
+        grade: normalized,
+      })));
+  }
+
+  return getDifficultyWords(getRecommendedSpellingDifficulty({ grade: normalized })).map((entry) => ({
+    ...entry,
+    definition: entry.clue,
+    sentence: "",
+    unit: null,
+    unitTitle: `${formatGradeLabel(normalized)} Core Words`,
+    grade: normalized,
+    type: "core",
+    pattern: "grade-list",
+  }));
+}
+
+function getSpellingBadgeText(profile = state.activeProfile, problem = state.currentProblem) {
+  const gradeLabel = formatGradeLabel(getProfileGrade(profile));
+  if (!problem || !problem.unit) {
+    return `${gradeLabel} Spelling`;
+  }
+
+  return `${gradeLabel} - Unit ${problem.unit}`;
 }
 
 function applyRecommendedSpellingDifficulty(profile = state.activeProfile) {
@@ -969,7 +1088,7 @@ function renderSubjects() {
   const hasProfile = Boolean(state.activeProfile);
 
   els.homeCurrentLearner.textContent = hasProfile
-    ? `${state.activeProfile.name} is ready`
+    ? `${state.activeProfile.name} - ${formatGradeLabel(getProfileGrade(state.activeProfile))}`
     : "No learner selected";
 
   els.subjectsGrid.innerHTML = SUBJECTS.map((subject) => {
@@ -1180,7 +1299,7 @@ function renderSubjectHeader() {
     els.subjectDescriptionText.textContent = "Choose a math skill, work through a round, and keep building confidence one problem at a time.";
   } else if (subject.id === SPELLING_SUBJECT_ID) {
     els.subjectTitleText.textContent = "Spelling Studio";
-    els.subjectDescriptionText.textContent = "Hear the word, type the spelling, and practice with age-aware words that avoid quick repeats.";
+    els.subjectDescriptionText.textContent = "Hear the word, type the spelling, and practice words that match the learner's grade level.";
   } else if (subject.id === GRAMMAR_SUBJECT_ID) {
     els.subjectTitleText.textContent = "Grammar Studio";
     els.subjectDescriptionText.textContent = "Practice grammar the traditional way with capitals, punctuation, parts of speech, and sentence repair.";
@@ -1194,7 +1313,7 @@ function renderSubjectHeader() {
     return;
   }
 
-  els.currentLearnerName.textContent = `${state.activeProfile.name}, age ${state.activeProfile.age}`;
+  els.currentLearnerName.textContent = `${state.activeProfile.name}, ${formatGradeLabel(getProfileGrade(state.activeProfile))}`;
   els.learnerStarsChip.innerHTML = `<i class="fa-solid fa-star"></i> ${state.activeProfile.stars} stars`;
   els.learnerStreakChip.innerHTML = `<i class="fa-solid fa-fire"></i> ${state.activeProfile.streak} streak`;
   els.currentLearnerAvatar.className = `avatar-dot ${state.activeProfile.avatarColor}`;
@@ -1206,6 +1325,25 @@ function setFeedback(message) {
 
 function getServerUrl(relativePath) {
   return new URL(relativePath, `${SERVER_ORIGIN}/`).toString();
+}
+
+async function loadSpellingCurriculum() {
+  const loadedCurriculum = {};
+
+  await Promise.all(Object.entries(GRADE_SPELLING_FILES).map(async ([grade, path]) => {
+    try {
+      const response = await fetch(getServerUrl(path));
+      if (!response.ok) {
+        throw new Error(`Unable to load ${path}`);
+      }
+
+      loadedCurriculum[grade] = await response.json();
+    } catch (error) {
+      console.warn(`Could not load spelling curriculum for grade ${grade}.`, error);
+    }
+  }));
+
+  state.spellingCurriculumByGrade = loadedCurriculum;
 }
 
 function openDatabase() {
@@ -1286,6 +1424,7 @@ function updateLayout() {
   els.homeView.classList.toggle("hidden", inSubject);
   els.subjectView.classList.toggle("hidden", !inSubject);
   els.goHome.classList.toggle("hidden", !inSubject);
+  els.difficultyField.classList.toggle("hidden", inSpelling);
   els.chooseLearner.innerHTML = inSubject
     ? '<i class="fa-solid fa-user-pen"></i> Change Learner'
     : '<i class="fa-solid fa-child-reaching"></i> Choose Learner';
@@ -1339,7 +1478,7 @@ function updateLayout() {
     els.promptLabel.textContent = "Listen and spell this word";
     els.problemHelper.textContent = STATIC_SPEECH.spellingPromptReady;
     els.problemText.textContent = "_ _ _ _ _";
-    els.lessonBadge.textContent = `Spelling - ${capitalize(els.difficulty.value)}`;
+    els.lessonBadge.textContent = getSpellingBadgeText();
     els.hintStatus.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Use Hint to reveal a few letters.';
     els.clueText.textContent = "";
   } else if (inGrammar && !state.currentProblem) {
@@ -1381,7 +1520,7 @@ function renderProfiles() {
         <div class="avatar-dot ${profile.avatarColor}"></div>
         <div class="profile-meta">
           <strong>${escapeHtml(profile.name)}</strong>
-          <span><i class="fa-solid fa-cake-candles"></i> Age ${profile.age} - <i class="fa-solid fa-star"></i> ${profile.stars} stars</span>
+          <span><i class="fa-solid fa-school"></i> ${formatGradeLabel(getProfileGrade(profile))} - <i class="fa-solid fa-star"></i> ${profile.stars} stars</span>
         </div>
         <button class="secondary-button small-button profile-select" type="button" data-profile-id="${profile.id}"><i class="fa-solid fa-hand-pointer"></i> ${activeLabel}</button>
       </article>
@@ -1456,10 +1595,13 @@ function renderActivity(answers) {
     const skill = subjectId === SPELLING_SUBJECT_ID
       ? { title: "Spelling Practice", id: SPELLING_SKILL_ID }
       : getSkillDefinition(answer.skillId || answer.operation || "addition", subjectId);
+    const levelText = subjectId === SPELLING_SUBJECT_ID
+      ? formatGradeLabel(answer.grade || getProfileGrade(state.activeProfile))
+      : capitalize(answer.difficulty);
     return `
       <article class="activity-item">
         <strong><i class="fa-solid ${answer.correct ? "fa-circle-check" : "fa-rotate-right"}"></i> ${escapeHtml(answer.problemText)} ${answer.correct ? "Correct" : "Try Again"}</strong>
-        <span><i class="fa-solid ${subject.icon}"></i> ${subject.title} - ${skill.title} - ${capitalize(answer.difficulty)} - ${formatDate(answer.createdAt)}</span>
+        <span><i class="fa-solid ${subject.icon}"></i> ${subject.title} - ${skill.title} - ${levelText} - ${formatDate(answer.createdAt)}</span>
       </article>
     `;
   }).join("");
@@ -1502,7 +1644,9 @@ async function refreshDashboard() {
 
 async function refreshProfiles() {
   const profiles = await getAll("profiles");
-  state.profiles = profiles.sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
+  state.profiles = profiles
+    .map((profile) => normalizeProfile(profile))
+    .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
   state.activeProfile = state.profiles.find((profile) => profile.id === state.activeProfileId) || null;
 
   if (!state.activeProfile) {
@@ -1636,7 +1780,8 @@ function buildMathProblem(skillId, difficulty) {
 }
 
 function buildSpellingProblem(difficulty, recentWords = []) {
-  const words = getDifficultyWords(difficulty);
+  const grade = getProfileGrade(state.activeProfile);
+  const words = getSpellingEntriesForGrade(grade);
   const recentSet = new Set(
     [...recentWords, ...state.recentSpellingWords, state.currentProblem?.answer]
       .filter(Boolean)
@@ -1655,13 +1800,18 @@ function buildSpellingProblem(difficulty, recentWords = []) {
   return {
     subjectId: SPELLING_SUBJECT_ID,
     skillId: SPELLING_SKILL_ID,
-    difficulty,
+    difficulty: getRecommendedSpellingDifficulty(state.activeProfile),
+    grade,
     answer: entry.word.toLowerCase(),
     promptText: `${entry.word.length} letters`,
-    spokenText: `Spell ${entry.word}. ${entry.clue}`,
-    historyText: `Spelling word - ${entry.category} - ${entry.word.length} letters`,
-    clue: entry.clue,
+    spokenText: `Spell ${entry.word}. ${entry.definition || entry.clue}`,
+    historyText: `Spelling word - ${formatGradeLabel(grade)} - ${entry.unitTitle || entry.category} - ${entry.word.length} letters`,
+    clue: entry.definition || entry.clue,
     category: entry.category,
+    unit: entry.unit || null,
+    unitTitle: entry.unitTitle || entry.category || "",
+    pattern: entry.pattern || "",
+    exampleSentence: entry.sentence || "",
     hintLevel: 0,
     hadMistake: false,
     usedHint: false,
@@ -1688,7 +1838,7 @@ function renderCurrentProblem() {
     els.answerForm.classList.remove("hidden");
 
     if (!state.currentProblem) {
-      els.lessonBadge.textContent = `Spelling - ${capitalize(els.difficulty.value)}`;
+      els.lessonBadge.textContent = getSpellingBadgeText();
       els.problemText.textContent = "_ _ _ _ _";
       els.hintStatus.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Use Hint to reveal a few letters.';
       els.clueText.textContent = "";
@@ -1696,12 +1846,14 @@ function renderCurrentProblem() {
       return;
     }
 
-    els.lessonBadge.textContent = `${capitalize(state.currentProblem.difficulty)} Spelling`;
+    els.lessonBadge.textContent = getSpellingBadgeText(state.activeProfile, state.currentProblem);
     els.problemText.textContent = getSpellingMask(state.currentProblem.answer, state.currentProblem.hintLevel);
     els.hintStatus.innerHTML = `<i class="fa-solid fa-lightbulb"></i> ${getSpellingHintMessage(state.currentProblem)}`;
     els.clueText.textContent = state.currentProblem.hintLevel > 0 || state.currentProblem.hadMistake
       ? `Clue: ${state.currentProblem.clue}`
-      : `Category: ${state.currentProblem.category}`;
+      : state.currentProblem.unit
+        ? `Unit ${state.currentProblem.unit}: ${state.currentProblem.unitTitle}`
+        : `Grade Focus: ${state.currentProblem.unitTitle || state.currentProblem.category}`;
     updateSpellingPreview();
     return;
   }
@@ -1845,11 +1997,11 @@ async function createProfile(event) {
   closeHeaderMenu();
 
   const name = els.childName.value.trim();
-  const age = Number(els.childAge.value);
+  const grade = normalizeGradeValue(els.childGrade.value);
   const avatarColor = els.avatarColor.value;
 
-  if (!name || !age) {
-    setFeedback("Please enter a learner name and age.");
+  if (!name || !grade) {
+    setFeedback("Please enter a learner name and choose a grade.");
     return;
   }
 
@@ -1857,7 +2009,7 @@ async function createProfile(event) {
   const profile = {
     id: crypto.randomUUID(),
     name,
-    age,
+    grade,
     avatarColor,
     stars: 0,
     streak: 0,
@@ -1878,6 +2030,7 @@ async function createProfile(event) {
   state.currentProblem = null;
   state.currentSessionId = null;
   els.profileForm.reset();
+  els.childGrade.value = "";
   els.avatarColor.value = "sunrise";
   setFeedback(STATIC_SPEECH.createProfile(name));
   await refreshProfiles();
@@ -2174,6 +2327,9 @@ async function recordAnswer(correct, submittedAnswer) {
     createdAt: now,
     skillId: state.currentProblem.skillId,
     difficulty: state.currentProblem.difficulty,
+    grade: state.currentProblem.grade || getProfileGrade(state.activeProfile),
+    unit: state.currentProblem.unit || null,
+    unitTitle: state.currentProblem.unitTitle || "",
     correct,
     submittedAnswer,
     expectedAnswer: state.currentProblem.answer,
@@ -2445,6 +2601,7 @@ async function init() {
   state.isMuted = localStorage.getItem(MUTE_STORAGE_KEY) === "true";
   state.db = await openDatabase();
   renderSpellingKeyboard();
+  await loadSpellingCurriculum();
   await refreshProfiles();
   renderSubjects();
   updateMuteButton();
