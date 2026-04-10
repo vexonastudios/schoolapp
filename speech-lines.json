@@ -1,0 +1,19 @@
+[
+  { "key": "instructions", "text": "Welcome to Sunny Learning Time. First choose or create a learner profile on the home page. Then choose a subject. Math and Spelling are ready now, and more subjects are on the way." },
+  { "key": "home-guide", "text": "Welcome to Sunny Learning Time. First choose or create a learner profile. Then pick a subject below. Math and Spelling are ready now." },
+  { "key": "math-guide", "text": "Welcome to Math. Select a math skill to work on below. Notice what you last used and what is currently recommended." },
+  { "key": "spelling-guide", "text": "Welcome to Spelling. Listen to the word, type the spelling, and tap Hint if you want a few letters revealed." },
+  { "key": "profile-selected-home", "text": "Your learner profile is selected. Now choose a subject like Math or Spelling." },
+  { "key": "skill-guide", "text": "Select a math skill to work on below. Notice what you last used and what is currently recommended." },
+  { "key": "success-1", "text": "Correct." },
+  { "key": "success-2", "text": "That's right." },
+  { "key": "success-3", "text": "You got it." },
+  { "key": "success-4", "text": "Yes." },
+  { "key": "success-5", "text": "Exactly." },
+  { "key": "success-6", "text": "Nice job." },
+  { "key": "success-7", "text": "Well done." },
+  { "key": "success-8", "text": "Right answer." },
+  { "key": "retry-1", "text": "Not quite yet, but that was a brave try." },
+  { "key": "retry-2", "text": "Almost there. Take another look." },
+  { "key": "retry-3", "text": "That one is tricky. Try the same one again." }
+]

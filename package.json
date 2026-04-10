@@ -1,0 +1,10 @@
+{
+  "name": "sunny-learning-time",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A homeschool learning hub with a live math module, learner profiles, rewards, and ElevenLabs voice support.",
+  "scripts": {
+    "start": "node server.js",
+    "build:speech": "node scripts/generate-speech-cache.js"
+  }
+}

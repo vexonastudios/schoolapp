@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sunny Learning Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header card">
+      <div class="app-brand">
+        <span class="brand-mark"><i class="fa-solid fa-sun"></i></span>
+        <div class="brand-copy">
+          <h1>Sunny Learning Time</h1>
+          <span>Homeschool Hub</span>
+        </div>
+      </div>
+      <div class="app-header-status">
+        <span id="header-learner-pill" class="pill header-learner-pill"><i class="fa-solid fa-user"></i> No learner selected</span>
+        <span id="header-stars-pill" class="pill header-stat-pill hidden"><i class="fa-solid fa-star"></i> 0 stars</span>
+        <span id="header-streak-pill" class="pill header-stat-pill hidden"><i class="fa-solid fa-fire"></i> 0 streak</span>
+        <span id="header-round-pill" class="pill header-stat-pill header-round-pill hidden"><i class="fa-solid fa-flag-checkered"></i> Round 1 0/10</span>
+      </div>
+      <button id="header-menu-toggle" class="secondary-button small-button icon-button header-menu-toggle" type="button" aria-expanded="false" aria-controls="app-header-actions" aria-label="Open menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div id="app-header-actions" class="app-header-actions">
+        <button id="go-home" class="secondary-button small-button hidden" type="button"><i class="fa-solid fa-house"></i> Home</button>
+        <button id="choose-learner" class="primary-button small-button" type="button"><i class="fa-solid fa-child-reaching"></i> Choose Learner</button>
+        <button id="read-instructions" class="secondary-button small-button" type="button"><i class="fa-solid fa-circle-info"></i> Help</button>
+        <button id="toggle-mute" class="secondary-button small-button" type="button"><i class="fa-solid fa-volume-xmark"></i> Mute Voice</button>
+      </div>
+    </header>
+
+    <section id="home-view" class="workspace-grid">
+      <aside class="sidebar">
+        <section class="card profile-card">
+          <div class="section-header">
+            <h2><i class="fa-solid fa-id-card"></i> Learner Profiles</h2>
+            <button id="refresh-profiles" class="secondary-button small-button" type="button"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+          </div>
+
+          <div id="profiles-list" class="profile-list"></div>
+
+          <button id="toggle-profile-form" class="primary-button profile-add-button hidden" type="button"><i class="fa-solid fa-user-plus"></i> Add New Child</button>
+
+          <div id="profile-form-panel">
+            <form id="profile-form" class="profile-form">
+              <label class="field">
+                <span>Child Name</span>
+                <input id="child-name" name="childName" type="text" maxlength="24" placeholder="Ava">
+              </label>
+              <label class="field">
+                <span>Age</span>
+                <input id="child-age" name="childAge" type="number" min="3" max="18" placeholder="7">
+              </label>
+              <label class="field">
+                <span>Avatar Color</span>
+                <select id="avatar-color" name="avatarColor">
+                  <option value="sunrise">Sunrise</option>
+                  <option value="meadow">Meadow</option>
+                  <option value="ocean">Ocean</option>
+                  <option value="berry">Berry</option>
+                </select>
+              </label>
+              <button class="primary-button" type="submit"><i class="fa-solid fa-user-plus"></i> Create Profile</button>
+            </form>
+          </div>
+        </section>
+      </aside>
+
+      <section class="main-column">
+        <section id="curriculum-card" class="card curriculum-card">
+          <div class="section-header">
+            <div>
+              <h2><i class="fa-solid fa-compass-drafting"></i> Choose A Learning Path</h2>
+              <p class="note">First choose a learner, then open a subject. Math, Spelling, and Grammar are ready now.</p>
+            </div>
+            <span id="home-current-learner" class="pill">No learner selected</span>
+          </div>
+          <div id="subjects-grid" class="subjects-grid"></div>
+        </section>
+      </section>
+    </section>
+
+    <section id="subject-view" class="workspace-grid hidden">
+      <aside class="sidebar">
+        <section class="card settings-card">
+          <h2><i class="fa-solid fa-wave-square"></i> Voice Studio</h2>
+          <p class="note">Sunny Learning Time uses one consistent homeschool voice with better AI audio.</p>
+          <p id="voice-status" class="note">
+            ElevenLabs voice cache is configured.
+          </p>
+          <p class="note">Children should still be told clearly when they are hearing an AI-generated voice.</p>
+        </section>
+      </aside>
+
+      <section class="main-column">
+        <section id="subject-header-card" class="card subject-header-card">
+          <div class="subject-header-copy">
+            <p id="subject-eyebrow" class="eyebrow">Current Subject</p>
+            <h2 id="subject-title-text">Math</h2>
+            <p id="subject-description-text" class="note">Choose a skill and begin practicing with your selected learner.</p>
+          </div>
+          <div id="active-learner-box" class="learner-summary-box">
+            <div class="learner-summary-head">
+              <span id="current-learner-avatar" class="avatar-dot sunrise"></span>
+              <div>
+                <span class="note">Current Learner</span>
+                <strong id="current-learner-name">No learner selected</strong>
+              </div>
+            </div>
+            <div class="learner-summary-stats">
+              <span id="learner-stars-chip" class="subject-meta"><i class="fa-solid fa-star"></i> 0 stars</span>
+              <span id="learner-streak-chip" class="subject-meta"><i class="fa-solid fa-fire"></i> 0 streak</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="empty-state-card" class="card empty-state-card">
+          <h2><i class="fa-solid fa-school"></i> Choose A Learner First</h2>
+          <p>Head back home, choose a learner profile, and then open a subject to begin practicing.</p>
+        </section>
+
+        <section id="skill-picker-card" class="card skill-picker-card hidden">
+          <div class="section-header">
+            <h2><i class="fa-solid fa-wand-sparkles"></i> Choose A Skill</h2>
+            <div class="skill-header-tools">
+              <span id="selected-skill-chip" class="pill">No skill selected</span>
+              <button id="toggle-skill-picker" class="secondary-button small-button hidden" type="button"><i class="fa-solid fa-pen"></i> Change Skill</button>
+            </div>
+          </div>
+          <div id="skill-picker-body">
+            <p id="recommendation-note" class="recommendation-banner note"><i class="fa-solid fa-lightbulb"></i> Pick a skill to begin.</p>
+            <p class="note">Each skill shows when this learner last practiced it.</p>
+            <div id="skills-list" class="skills-list"></div>
+          </div>
+        </section>
+
+        <section id="lesson-card" class="card lesson-card hidden">
+          <div class="section-header">
+            <h2 id="lesson-title"><i class="fa-solid fa-calculator"></i> Math Studio</h2>
+            <span id="lesson-badge" class="pill accent-pill">Addition - Medium</span>
+          </div>
+
+          <div class="lesson-controls">
+            <label class="field">
+              <span><i class="fa-solid fa-layer-group"></i> Difficulty</span>
+              <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+            <div class="button-stack">
+              <button id="new-problem" class="secondary-button" type="button"><i class="fa-solid fa-dice"></i> New Problem</button>
+              <button id="repeat-problem" class="secondary-button" type="button"><i class="fa-solid fa-volume-high"></i> Speak Again</button>
+              <button id="hint-problem" class="secondary-button hidden" type="button"><i class="fa-solid fa-lightbulb"></i> Hint</button>
+            </div>
+          </div>
+
+          <div class="round-strip">
+            <div class="round-copy">
+              <span class="round-label"><i class="fa-solid fa-flag-checkered"></i> Round Progress</span>
+              <strong id="round-status">Round 1 - 0 / 10 correct</strong>
+            </div>
+            <div class="round-actions">
+              <div class="progress-meter round-meter">
+                <div id="round-progress" class="progress-fill round-fill"></div>
+              </div>
+              <button id="next-round" class="primary-button small-button hidden" type="button"><i class="fa-solid fa-forward"></i> Next Round</button>
+            </div>
+          </div>
+
+          <div class="problem-stage">
+            <p id="prompt-label" class="prompt-label">Solve this problem</p>
+            <p id="problem-helper" class="note problem-helper">Listen carefully and type the answer.</p>
+            <div id="problem-text" class="problem-text">4 + 3 = ?</div>
+          </div>
+
+          <div id="spelling-hint-panel" class="hint-panel hidden">
+            <span id="hint-status" class="hint-chip"><i class="fa-solid fa-lightbulb"></i> Use Hint to reveal a few letters.</span>
+            <p id="clue-text" class="note clue-text"></p>
+          </div>
+
+          <div id="grammar-panel" class="hint-panel hidden">
+            <span id="grammar-rule-chip" class="hint-chip"><i class="fa-solid fa-book-open"></i> Use Hint to see a grammar rule.</span>
+            <p id="grammar-example-text" class="note clue-text"></p>
+          </div>
+
+          <div id="choice-panel" class="choice-panel hidden">
+            <div id="choice-grid" class="choice-grid"></div>
+          </div>
+
+          <form id="answer-form" class="answer-form">
+            <button id="answer-repeat-problem" class="secondary-button icon-button answer-repeat-button hidden" type="button" aria-label="Hear word again" title="Hear word again"><i class="fa-solid fa-volume-high"></i></button>
+            <button id="answer-hint-problem" class="secondary-button icon-button answer-hint-button hidden" type="button" aria-label="Show hint" title="Show hint"><i class="fa-solid fa-lightbulb"></i></button>
+            <button id="check-answer-button" class="primary-button answer-submit-button" type="submit">Check Answer</button>
+            <div id="answer-input-shell" class="answer-input-shell">
+              <div id="spelling-preview" class="spelling-preview hidden" aria-hidden="true">Tap here to type the word</div>
+              <input id="answer-input" name="answer" type="number" inputmode="numeric" autocomplete="off" placeholder="Type your answer">
+            </div>
+          </form>
+          <div id="spelling-keyboard" class="spelling-keyboard hidden" aria-label="Spelling keyboard"></div>
+
+          <p id="feedback" class="feedback" aria-live="polite">Choose a learner and a subject to begin.</p>
+        </section>
+
+        <section id="dashboard-card" class="card active-child-card hidden">
+          <div class="reward-row">
+            <div class="progress-cluster">
+              <div class="progress-meter">
+                <div id="reward-progress" class="progress-fill"></div>
+              </div>
+              <span id="reward-progress-text" class="progress-text">0 / 10 stars to next badge</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="activity-card" class="card activity-card hidden">
+          <div class="section-header">
+            <h2><i class="fa-solid fa-clock-rotate-left"></i> Recent Activity</h2>
+            <span class="pill">Saved locally</span>
+          </div>
+          <div id="activity-list" class="activity-list"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
