@@ -164,5 +164,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Sunny Learning Time is running at http://localhost:${PORT}`);
+  console.log(`Jennings Learning is running at http://localhost:${PORT}`);
 });

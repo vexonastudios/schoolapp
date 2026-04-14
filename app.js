@@ -4,7 +4,7 @@ const STARS_PER_CORRECT = 2;
 const STARS_PER_STREAK_BONUS = 3;
 const ROUND_TARGET = 10;
 const ROUND_COMPLETION_BONUS = 20;
-const APP_NAME = "Sunny Learning Time";
+const APP_NAME = "Jennings Learning";
 const MATH_SUBJECT_ID = "math";
 const SPELLING_SUBJECT_ID = "spelling";
 const GRAMMAR_SUBJECT_ID = "grammar";
@@ -867,6 +867,71 @@ function getSpellingHintSpeech(problem) {
   return `Here is a strong hint. ${getSpellingMask(problem.answer, 3).replaceAll("_", "blank")}. ${problem.clue}`;
 }
 
+function getSpellingLetterState(expectedLetter, typedLetter) {
+  if (!expectedLetter && typedLetter) {
+    return "extra";
+  }
+
+  if (!typedLetter) {
+    return "missing";
+  }
+
+  return expectedLetter === typedLetter ? "correct" : "wrong";
+}
+
+function getSpellingLetterChip(letter, stateName) {
+  return `<span class="spelling-letter spelling-letter-${stateName}">${escapeHtml(letter)}</span>`;
+}
+
+function getSpellingReviewMarkup(problem) {
+  if (!problem?.lastSubmittedAnswer) {
+    return "";
+  }
+
+  const typedWord = String(problem.lastSubmittedAnswer).toLowerCase();
+  const answerWord = String(problem.answer || "").toLowerCase();
+  const reviewLength = Math.max(answerWord.length, typedWord.length);
+  const typedLetters = [];
+  const answerLetters = [];
+
+  for (let index = 0; index < reviewLength; index += 1) {
+    const typedLetter = typedWord[index] || "";
+    const answerLetter = answerWord[index] || "";
+    const letterState = getSpellingLetterState(answerLetter, typedLetter);
+
+    if (typedLetter || answerLetter) {
+      typedLetters.push(getSpellingLetterChip(typedLetter || "_", letterState));
+    }
+
+    if (answerLetter) {
+      answerLetters.push(getSpellingLetterChip(answerLetter, letterState === "correct" ? "correct" : "wrong"));
+    }
+  }
+
+  const clueLine = problem.clue
+    ? `<p class="spelling-review-clue">Clue: ${escapeHtml(problem.clue)}</p>`
+    : "";
+  const hintLine = problem.hintLevel > 0
+    ? `<p class="spelling-review-clue">Hint: ${escapeHtml(getSpellingMask(problem.answer, problem.hintLevel))}</p>`
+    : "";
+
+  return `
+    <div class="spelling-review">
+      <p class="spelling-review-note">Green letters were right. Red letters need fixing.</p>
+      <div class="spelling-review-row">
+        <span class="spelling-review-label">Your try</span>
+        <div class="spelling-letter-strip">${typedLetters.join("")}</div>
+      </div>
+      <div class="spelling-review-row">
+        <span class="spelling-review-label">Correct word</span>
+        <div class="spelling-letter-strip">${answerLetters.join("")}</div>
+      </div>
+      ${clueLine}
+      ${hintLine}
+    </div>
+  `;
+}
+
 function applyRecommendedGrammarDifficulty(profile = state.activeProfile) {
   if (!profile) {
     return;
@@ -1479,8 +1544,9 @@ function updateLayout() {
     els.problemHelper.textContent = STATIC_SPEECH.spellingPromptReady;
     els.problemText.textContent = "_ _ _ _ _";
     els.lessonBadge.textContent = getSpellingBadgeText();
+    els.hintStatus.classList.remove("review-chip");
     els.hintStatus.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Use Hint to reveal a few letters.';
-    els.clueText.textContent = "";
+    els.clueText.innerHTML = "";
   } else if (inGrammar && !state.currentProblem) {
     els.promptLabel.textContent = "Choose the best grammar answer";
     els.problemHelper.textContent = STATIC_SPEECH.grammarPromptReady;
@@ -1815,6 +1881,7 @@ function buildSpellingProblem(difficulty, recentWords = []) {
     hintLevel: 0,
     hadMistake: false,
     usedHint: false,
+    lastSubmittedAnswer: "",
   };
 }
 
@@ -1840,20 +1907,28 @@ function renderCurrentProblem() {
     if (!state.currentProblem) {
       els.lessonBadge.textContent = getSpellingBadgeText();
       els.problemText.textContent = "_ _ _ _ _";
+      els.hintStatus.classList.remove("review-chip");
       els.hintStatus.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Use Hint to reveal a few letters.';
-      els.clueText.textContent = "";
+      els.clueText.innerHTML = "";
       updateSpellingPreview();
       return;
     }
 
     els.lessonBadge.textContent = getSpellingBadgeText(state.activeProfile, state.currentProblem);
     els.problemText.textContent = getSpellingMask(state.currentProblem.answer, state.currentProblem.hintLevel);
-    els.hintStatus.innerHTML = `<i class="fa-solid fa-lightbulb"></i> ${getSpellingHintMessage(state.currentProblem)}`;
-    els.clueText.textContent = state.currentProblem.hintLevel > 0 || state.currentProblem.hadMistake
-      ? `Clue: ${state.currentProblem.clue}`
-      : state.currentProblem.unit
-        ? `Unit ${state.currentProblem.unit}: ${state.currentProblem.unitTitle}`
-        : `Grade Focus: ${state.currentProblem.unitTitle || state.currentProblem.category}`;
+    if (state.currentProblem.lastSubmittedAnswer) {
+      els.hintStatus.classList.add("review-chip");
+      els.hintStatus.innerHTML = '<i class="fa-solid fa-spell-check"></i> Let&apos;s fix this word together.';
+      els.clueText.innerHTML = getSpellingReviewMarkup(state.currentProblem);
+    } else {
+      els.hintStatus.classList.remove("review-chip");
+      els.hintStatus.innerHTML = `<i class="fa-solid fa-lightbulb"></i> ${getSpellingHintMessage(state.currentProblem)}`;
+      els.clueText.textContent = state.currentProblem.hintLevel > 0
+        ? `Clue: ${state.currentProblem.clue}`
+        : state.currentProblem.unit
+          ? `Unit ${state.currentProblem.unit}: ${state.currentProblem.unitTitle}`
+          : `Grade Focus: ${state.currentProblem.unitTitle || state.currentProblem.category}`;
+    }
     updateSpellingPreview();
     return;
   }
@@ -2374,6 +2449,9 @@ async function submitAnswer(rawAnswer) {
 
   if (!correct) {
     state.currentProblem.hadMistake = true;
+    if (isSpellingView()) {
+      state.currentProblem.lastSubmittedAnswer = rawValue.toLowerCase();
+    }
     const updatedProfile = { ...state.activeProfile, streak: 0, updatedAt: new Date().toISOString() };
     await putRecord("profiles", updatedProfile);
     state.activeProfile = updatedProfile;

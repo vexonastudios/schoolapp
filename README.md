@@ -1,6 +1,6 @@
-# Sunny Learning Time
+# Jennings Learning
 
-Sunny Learning Time is a homeschool learning hub with:
+Jennings Learning is a homeschool learning hub with:
 
 - A subject home page
 - Shared learner profiles chosen before subjects

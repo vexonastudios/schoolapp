@@ -1,8 +1,8 @@
 {
-  "name": "sunny-learning-time",
+  "name": "jennings-learning",
   "version": "1.0.0",
   "private": true,
-  "description": "A homeschool learning hub with a live math module, learner profiles, rewards, and ElevenLabs voice support.",
+  "description": "A homeschool learning hub with Math, Spelling, Grammar, learner profiles, rewards, and ElevenLabs voice support.",
   "scripts": {
     "start": "node server.js",
     "build:speech": "node scripts/generate-speech-cache.js"

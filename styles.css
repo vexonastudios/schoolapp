@@ -93,10 +93,15 @@ h3,
   width: 48px;
   height: 48px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 215, 100, 0.95), rgba(255, 126, 107, 0.95));
-  color: white;
-  font-size: 1.15rem;
-  box-shadow: 0 12px 24px rgba(255, 126, 107, 0.18);
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(35, 52, 71, 0.16);
+}
+
+.brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand-copy {
@@ -196,12 +201,17 @@ h1 {
   min-width: 0;
 }
 
+#subject-view.workspace-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .home-view {
   margin-top: 20px;
 }
 
 .sidebar,
-.main-column {
+.main-column,
+.voice-dock-wrap {
   display: grid;
   gap: 20px;
   min-width: 0;
@@ -216,6 +226,50 @@ h1 {
 .subject-header-card {
   padding: 22px;
   min-width: 0;
+}
+
+.voice-dock-wrap {
+  margin-top: -2px;
+}
+
+.voice-dock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 24px;
+  background: rgba(255, 251, 243, 0.94);
+}
+
+.voice-dock-copy {
+  display: grid;
+  gap: 4px;
+}
+
+.voice-dock-copy strong {
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1.1rem;
+}
+
+.voice-dock-copy strong i {
+  margin-right: 8px;
+}
+
+.voice-dock-copy p {
+  margin: 0;
+}
+
+.voice-status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(77, 163, 255, 0.12);
+  color: var(--ink);
+  font-weight: 700;
+  box-shadow: inset 0 0 0 2px rgba(35, 52, 71, 0.05);
 }
 
 .section-header {
@@ -768,8 +822,84 @@ h3 i,
   box-shadow: inset 0 0 0 2px rgba(35, 52, 71, 0.05);
 }
 
+.hint-chip.review-chip {
+  background: rgba(255, 255, 255, 0.96);
+  color: #b34242;
+  box-shadow: inset 0 0 0 2px rgba(179, 66, 66, 0.14);
+}
+
 .clue-text {
   margin: 0;
+}
+
+.spelling-review {
+  display: grid;
+  gap: 12px;
+}
+
+.spelling-review-note,
+.spelling-review-clue {
+  margin: 0;
+}
+
+.spelling-review-note {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.spelling-review-row {
+  display: grid;
+  gap: 8px;
+}
+
+.spelling-review-label {
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+}
+
+.spelling-letter-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.spelling-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  min-height: 42px;
+  padding: 4px 8px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 2px rgba(35, 52, 71, 0.08);
+  font-family: "Baloo 2", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.spelling-letter-correct {
+  background: rgba(133, 214, 137, 0.28);
+  color: #1c7a33;
+  box-shadow: inset 0 0 0 2px rgba(28, 122, 51, 0.16);
+}
+
+.spelling-letter-wrong,
+.spelling-letter-extra {
+  background: rgba(255, 120, 120, 0.22);
+  color: #b63636;
+  box-shadow: inset 0 0 0 2px rgba(182, 54, 54, 0.16);
+}
+
+.spelling-letter-missing {
+  background: rgba(255, 120, 120, 0.12);
+  color: #c55e5e;
+  box-shadow: inset 0 0 0 2px rgba(197, 94, 94, 0.14);
 }
 
 .choice-panel {
@@ -1003,7 +1133,6 @@ h3 i,
     width: 40px;
     height: 40px;
     border-radius: 14px;
-    font-size: 1rem;
   }
 
   .brand-copy h1 {
@@ -1056,12 +1185,12 @@ h3 i,
     flex: 0 0 auto;
   }
 
-  #subject-view .sidebar {
-    order: 2;
-  }
-
   #subject-view .main-column {
     order: 1;
+  }
+
+  #subject-view .voice-dock-wrap {
+    order: 5;
   }
 
   .reward-row,
@@ -1109,6 +1238,17 @@ h3 i,
   .curriculum-card,
   .profile-card {
     padding: 18px;
+  }
+
+  .voice-dock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .voice-status-pill {
+    width: 100%;
+    border-radius: 18px;
   }
 
   .round-strip {

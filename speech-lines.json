@@ -1,6 +1,6 @@
 [
-  { "key": "instructions", "text": "Welcome to Sunny Learning Time. First choose or create a learner profile on the home page. Then choose a subject. Math and Spelling are ready now, and more subjects are on the way." },
-  { "key": "home-guide", "text": "Welcome to Sunny Learning Time. First choose or create a learner profile. Then pick a subject below. Math and Spelling are ready now." },
+  { "key": "instructions", "text": "Welcome to Jennings Learning. First choose or create a learner profile on the home page. Then choose a subject. Math, Spelling, and Grammar are ready now, and more subjects are on the way." },
+  { "key": "home-guide", "text": "Welcome to Jennings Learning. First choose or create a learner profile. Then pick a subject below. Math, Spelling, and Grammar are ready now." },
   { "key": "math-guide", "text": "Welcome to Math. Select a math skill to work on below. Notice what you last used and what is currently recommended." },
   { "key": "spelling-guide", "text": "Welcome to Spelling. Listen to the word, type the spelling, and tap Hint if you want a few letters revealed." },
   { "key": "profile-selected-home", "text": "Your learner profile is selected. Now choose a subject like Math or Spelling." },

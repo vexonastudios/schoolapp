@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sunny Learning Time</title>
+  <title>Jennings Learning</title>
+  <link rel="icon" type="image/svg+xml" href="assets/jennings-learning-logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -14,10 +15,12 @@
   <main class="app-shell">
     <header class="app-header card">
       <div class="app-brand">
-        <span class="brand-mark"><i class="fa-solid fa-sun"></i></span>
+        <span class="brand-mark">
+          <img class="brand-logo" src="assets/jennings-learning-logo.svg" alt="Jennings Learning logo">
+        </span>
         <div class="brand-copy">
-          <h1>Sunny Learning Time</h1>
-          <span>Homeschool Hub</span>
+          <h1>Jennings Learning</h1>
+          <span>Homeschool Learning Apps</span>
         </div>
       </div>
       <div class="app-header-status">
@@ -104,17 +107,6 @@
     </section>
 
     <section id="subject-view" class="workspace-grid hidden">
-      <aside class="sidebar">
-        <section class="card settings-card">
-          <h2><i class="fa-solid fa-wave-square"></i> Voice Studio</h2>
-          <p class="note">Sunny Learning Time uses one consistent homeschool voice with better AI audio.</p>
-          <p id="voice-status" class="note">
-            ElevenLabs voice cache is configured.
-          </p>
-          <p class="note">Children should still be told clearly when they are hearing an AI-generated voice.</p>
-        </section>
-      </aside>
-
       <section class="main-column">
         <section id="subject-header-card" class="card subject-header-card">
           <div class="subject-header-copy">
@@ -200,7 +192,7 @@
 
           <div id="spelling-hint-panel" class="hint-panel hidden">
             <span id="hint-status" class="hint-chip"><i class="fa-solid fa-lightbulb"></i> Use Hint to reveal a few letters.</span>
-            <p id="clue-text" class="note clue-text"></p>
+            <div id="clue-text" class="note clue-text"></div>
           </div>
 
           <div id="grammar-panel" class="hint-panel hidden">
@@ -243,6 +235,18 @@
             <span class="pill">Saved locally</span>
           </div>
           <div id="activity-list" class="activity-list"></div>
+        </section>
+      </section>
+
+      <section class="voice-dock-wrap">
+        <section class="card settings-card voice-dock">
+          <div class="voice-dock-copy">
+            <strong><i class="fa-solid fa-wave-square"></i> Voice Studio</strong>
+            <p class="note">Spoken directions and read-aloud prompts are ready for this lesson.</p>
+          </div>
+          <p id="voice-status" class="note voice-status-pill">
+            ElevenLabs voice cache is configured.
+          </p>
         </section>
       </section>
     </section>
