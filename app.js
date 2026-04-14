@@ -8,9 +8,11 @@ const APP_NAME = "Jennings Learning";
 const MATH_SUBJECT_ID = "math";
 const SPELLING_SUBJECT_ID = "spelling";
 const GRAMMAR_SUBJECT_ID = "grammar";
+const BIBLE_SUBJECT_ID = "bible";
 const SPELLING_SKILL_ID = "spelling-core";
 const SPELLING_RECENT_LIMIT = 12;
 const GRAMMAR_RECENT_LIMIT = 10;
+const BIBLE_RECENT_LIMIT = 10;
 const GRADE_SPELLING_FILES = {
   "5": "data/grade_5_spelling_units_complete.json",
 };
@@ -52,13 +54,13 @@ const SUBJECTS = [
     highlights: ["Traditional grammar drills live", "Rule hints and sentence repair"],
   },
   {
-    id: "bible",
+    id: BIBLE_SUBJECT_ID,
     title: "Bible",
-    description: "Answer Bible questions, memory prompts, and story-based review together.",
+    description: "Practice doctrine words, Bible facts, and verse fill-ins with guided review.",
     icon: "fa-cross",
-    status: "Coming Soon",
-    available: false,
-    highlights: ["Quiz paths planned", "Story review coming"],
+    status: "Ready Now",
+    available: true,
+    highlights: ["Doctrine and verse review live", "Multiple-choice practice ready"],
   },
 ];
 const SKILLS = [
@@ -74,6 +76,11 @@ const GRAMMAR_SKILLS = [
   { id: "nouns", title: "Nouns", description: "Identify people, places, animals, and things." },
   { id: "verbs", title: "Verbs", description: "Find the action word in each sentence." },
   { id: "sentence-fix", title: "Sentence Fix-It", description: "Repair a sentence by choosing the best version." },
+];
+const BIBLE_SKILLS = [
+  { id: "doctrine", title: "Doctrine Words", description: "Learn clear biblical definitions taught in a Reformed way." },
+  { id: "bible-facts", title: "Bible Facts", description: "Practice books, numbers, and big-picture Bible facts." },
+  { id: "verse-fill", title: "Verse Fill-Ins", description: "Choose the missing word from a Bible verse." },
 ];
 const SPELLING_WORDS = {
   easy: [
@@ -235,6 +242,543 @@ const GRAMMAR_PROMPTS = {
   ],
 };
 
+const BIBLE_PROMPTS = {
+  doctrine: [
+    {
+      id: "doctrine-1",
+      level: 1,
+      questionText: "What is grace?",
+      displayText: "What is grace?",
+      answer: "God's undeserved favor toward sinners",
+      choices: [
+        "God's undeserved favor toward sinners",
+        "A list of rules we keep to earn salvation",
+        "A feeling that only comes on Sundays",
+        "The money people give at church",
+      ],
+      spokenText: "What is grace?",
+      supportText: "Think about a gift from God that we could never earn.",
+      ruleText: "Grace means God is kind to sinners even though they do not deserve it.",
+      strongHintText: "Grace is God's undeserved favor toward sinners.",
+      historyText: "Doctrine Words - Grace",
+    },
+    {
+      id: "doctrine-2",
+      level: 1,
+      questionText: "What is faith?",
+      displayText: "What is faith?",
+      answer: "Trusting in Christ alone to save us",
+      choices: [
+        "Trusting in Christ alone to save us",
+        "Trying to save ourselves with good behavior",
+        "Guessing without knowing anything",
+        "Wanting God to give us everything we ask",
+      ],
+      spokenText: "What is faith?",
+      supportText: "Biblical faith rests on Jesus, not on ourselves.",
+      ruleText: "Saving faith receives and rests on Christ and His promises.",
+      strongHintText: "Faith is trusting in Christ alone to save us.",
+      historyText: "Doctrine Words - Faith",
+    },
+    {
+      id: "doctrine-3",
+      level: 1,
+      questionText: "What is repentance?",
+      displayText: "What is repentance?",
+      answer: "Turning from sin to God",
+      choices: [
+        "Turning from sin to God",
+        "Being sorry without changing direction",
+        "Hiding our sin from other people",
+        "Promising to do better without needing Jesus",
+      ],
+      spokenText: "What is repentance?",
+      supportText: "Repentance changes both the heart and direction of life.",
+      ruleText: "Repentance means turning away from sin and turning to God.",
+      strongHintText: "Repentance is turning from sin to God.",
+      historyText: "Doctrine Words - Repentance",
+    },
+    {
+      id: "doctrine-4",
+      level: 1,
+      questionText: "What is sin?",
+      displayText: "What is sin?",
+      answer: "Any lack of conformity to, or transgression of, God's law",
+      choices: [
+        "Any lack of conformity to, or transgression of, God's law",
+        "Only the very worst crimes people commit",
+        "Anything that makes us feel ashamed",
+        "A mistake that does not matter to God",
+      ],
+      spokenText: "What is sin?",
+      supportText: "Sin is measured by God's holy law, not by our opinions.",
+      ruleText: "Sin is anything that breaks God's law or falls short of it.",
+      strongHintText: "Sin is any lack of conformity to, or transgression of, God's law.",
+      historyText: "Doctrine Words - Sin",
+    },
+    {
+      id: "doctrine-5",
+      level: 2,
+      questionText: "What is justification?",
+      displayText: "What is justification?",
+      answer: "God declaring sinners righteous because of Christ",
+      choices: [
+        "God declaring sinners righteous because of Christ",
+        "God slowly making believers more holy over time",
+        "People proving themselves worthy before God",
+        "The church deciding who is innocent",
+      ],
+      spokenText: "What is justification?",
+      supportText: "Think about a judge's verdict that comes from Christ's finished work.",
+      ruleText: "Justification is God's act of declaring sinners righteous because of Christ.",
+      strongHintText: "Justification means God declares sinners righteous because of Christ, not because they earned it.",
+      historyText: "Doctrine Words - Justification",
+    },
+    {
+      id: "doctrine-6",
+      level: 2,
+      questionText: "What is sanctification?",
+      displayText: "What is sanctification?",
+      answer: "God's work of making believers more holy",
+      choices: [
+        "God's work of making believers more holy",
+        "The moment a sinner is first forgiven",
+        "A ceremony that guarantees salvation",
+        "Trying harder without the Holy Spirit",
+      ],
+      spokenText: "What is sanctification?",
+      supportText: "Sanctification is a growing work in the believer's life.",
+      ruleText: "Sanctification is God's work of making believers more and more holy.",
+      strongHintText: "Sanctification is God's ongoing work of making believers more holy.",
+      historyText: "Doctrine Words - Sanctification",
+    },
+    {
+      id: "doctrine-7",
+      level: 2,
+      questionText: "What is adoption?",
+      displayText: "What is adoption?",
+      answer: "God bringing believers into His family",
+      choices: [
+        "God bringing believers into His family",
+        "Believers earning a place in heaven",
+        "Parents dedicating a child at church",
+        "Joining a church membership class",
+      ],
+      spokenText: "What is adoption?",
+      supportText: "In salvation, God welcomes us as His children.",
+      ruleText: "Adoption means God receives believers as His children.",
+      strongHintText: "Adoption is God bringing believers into His family.",
+      historyText: "Doctrine Words - Adoption",
+    },
+    {
+      id: "doctrine-8",
+      level: 2,
+      questionText: "What is redemption?",
+      displayText: "What is redemption?",
+      answer: "Being bought back from slavery to sin by Christ",
+      choices: [
+        "Being bought back from slavery to sin by Christ",
+        "Remembering what God has done in the past",
+        "Trying to fix our own hearts",
+        "Receiving a reward for good works",
+      ],
+      spokenText: "What is redemption?",
+      supportText: "Redemption is rescue at a cost, and Christ paid that cost.",
+      ruleText: "Redemption means Christ bought His people back from slavery to sin.",
+      strongHintText: "Redemption is being bought back from slavery to sin by Christ.",
+      historyText: "Doctrine Words - Redemption",
+    },
+    {
+      id: "doctrine-9",
+      level: 3,
+      questionText: "What is propitiation?",
+      displayText: "What is propitiation?",
+      answer: "The removal of the wrath of God through Christ's sacrifice",
+      choices: [
+        "The removal of the wrath of God through Christ's sacrifice",
+        "A promise that believers will never suffer",
+        "A way of proving our love to God",
+        "The outward sign of baptism",
+      ],
+      spokenText: "What is propitiation?",
+      supportText: "Think about what Christ's death did to God's holy wrath against sin.",
+      ruleText: "Propitiation means Christ's sacrifice turned away the wrath of God.",
+      strongHintText: "Propitiation is the removal of the wrath of God through Christ's sacrifice.",
+      historyText: "Doctrine Words - Propitiation",
+    },
+    {
+      id: "doctrine-10",
+      level: 3,
+      questionText: "What is regeneration?",
+      displayText: "What is regeneration?",
+      answer: "The new birth worked by the Holy Spirit",
+      choices: [
+        "The new birth worked by the Holy Spirit",
+        "The believer's promise to obey better",
+        "A stage of church membership",
+        "The final resurrection only",
+      ],
+      spokenText: "What is regeneration?",
+      supportText: "Jesus spoke of being born again.",
+      ruleText: "Regeneration is the new birth given by the Holy Spirit.",
+      strongHintText: "Regeneration means the new birth worked by the Holy Spirit.",
+      historyText: "Doctrine Words - Regeneration",
+    },
+    {
+      id: "doctrine-11",
+      level: 3,
+      questionText: "What is imputation?",
+      displayText: "What is imputation?",
+      answer: "Counting Christ's righteousness to believers",
+      choices: [
+        "Counting Christ's righteousness to believers",
+        "Making people perfect immediately",
+        "Teaching children to memorize verses",
+        "A feeling of peace after prayer",
+      ],
+      spokenText: "What is imputation?",
+      supportText: "In the gospel, God counts something to our account.",
+      ruleText: "Imputation means sin was counted to Christ and His righteousness is counted to believers.",
+      strongHintText: "Imputation is God counting Christ's righteousness to believers.",
+      historyText: "Doctrine Words - Imputation",
+    },
+    {
+      id: "doctrine-12",
+      level: 3,
+      questionText: "What is glorification?",
+      displayText: "What is glorification?",
+      answer: "God making believers perfectly holy forever",
+      choices: [
+        "God making believers perfectly holy forever",
+        "The first step of turning from sin",
+        "A church leader being honored by people",
+        "A believer learning more Bible facts",
+      ],
+      spokenText: "What is glorification?",
+      supportText: "Glorification is the final step of salvation.",
+      ruleText: "Glorification is when God makes believers perfectly holy forever.",
+      strongHintText: "Glorification means God will make believers perfectly holy forever.",
+      historyText: "Doctrine Words - Glorification",
+    },
+  ],
+  "bible-facts": [
+    {
+      id: "facts-1",
+      level: 1,
+      questionText: "How many books are in the Old Testament?",
+      displayText: "How many books are in the Old Testament?",
+      answer: "39",
+      choices: ["39", "27", "66", "12"],
+      spokenText: "How many books are in the Old Testament?",
+      supportText: "The Old Testament is the larger part of the Bible before the New Testament.",
+      ruleText: "The Old Testament has 39 books.",
+      strongHintText: "The correct number is 39.",
+      historyText: "Bible Facts - Old Testament books",
+    },
+    {
+      id: "facts-2",
+      level: 1,
+      questionText: "How many books are in the New Testament?",
+      displayText: "How many books are in the New Testament?",
+      answer: "27",
+      choices: ["27", "39", "66", "7"],
+      spokenText: "How many books are in the New Testament?",
+      supportText: "The New Testament begins with the Gospels.",
+      ruleText: "The New Testament has 27 books.",
+      strongHintText: "The correct number is 27.",
+      historyText: "Bible Facts - New Testament books",
+    },
+    {
+      id: "facts-3",
+      level: 1,
+      questionText: "How many books are in the whole Bible?",
+      displayText: "How many books are in the whole Bible?",
+      answer: "66",
+      choices: ["66", "39", "27", "70"],
+      spokenText: "How many books are in the whole Bible?",
+      supportText: "Think of the Old Testament and New Testament together.",
+      ruleText: "The whole Bible has 66 books.",
+      strongHintText: "The correct number is 66.",
+      historyText: "Bible Facts - Total books",
+    },
+    {
+      id: "facts-4",
+      level: 1,
+      questionText: "Which book comes first in the Bible?",
+      displayText: "Which book comes first in the Bible?",
+      answer: "Genesis",
+      choices: ["Genesis", "Matthew", "Psalms", "Revelation"],
+      spokenText: "Which book comes first in the Bible?",
+      supportText: "The first book tells us about creation, the fall, and the patriarchs.",
+      ruleText: "Genesis is the first book of the Bible.",
+      strongHintText: "The answer is Genesis.",
+      historyText: "Bible Facts - First book",
+    },
+    {
+      id: "facts-5",
+      level: 1,
+      questionText: "Which book comes last in the Bible?",
+      displayText: "Which book comes last in the Bible?",
+      answer: "Revelation",
+      choices: ["Revelation", "Malachi", "Romans", "Acts"],
+      spokenText: "Which book comes last in the Bible?",
+      supportText: "The final book contains visions given to John.",
+      ruleText: "Revelation is the last book of the Bible.",
+      strongHintText: "The answer is Revelation.",
+      historyText: "Bible Facts - Last book",
+    },
+    {
+      id: "facts-6",
+      level: 1,
+      questionText: "How many Gospels are there?",
+      displayText: "How many Gospels are there?",
+      answer: "4",
+      choices: ["4", "3", "5", "12"],
+      spokenText: "How many Gospels are there?",
+      supportText: "Matthew, Mark, Luke, and John are the Gospels.",
+      ruleText: "There are 4 Gospels.",
+      strongHintText: "The correct number is 4.",
+      historyText: "Bible Facts - Gospels",
+    },
+    {
+      id: "facts-7",
+      level: 2,
+      questionText: "How many books are in the Pentateuch?",
+      displayText: "How many books are in the Pentateuch?",
+      answer: "5",
+      choices: ["5", "4", "10", "12"],
+      spokenText: "How many books are in the Pentateuch?",
+      supportText: "The Pentateuch is the first group of books in the Bible.",
+      ruleText: "The Pentateuch has 5 books.",
+      strongHintText: "The correct number is 5.",
+      historyText: "Bible Facts - Pentateuch",
+    },
+    {
+      id: "facts-8",
+      level: 2,
+      questionText: "How many days did God create before He rested?",
+      displayText: "How many days did God create before He rested?",
+      answer: "6",
+      choices: ["6", "7", "5", "40"],
+      spokenText: "How many days did God create before He rested?",
+      supportText: "God rested on the seventh day after finishing His work.",
+      ruleText: "God created in 6 days and rested on the seventh.",
+      strongHintText: "The correct number is 6.",
+      historyText: "Bible Facts - Creation days",
+    },
+    {
+      id: "facts-9",
+      level: 2,
+      questionText: "How many commandments did God give on the stone tablets?",
+      displayText: "How many commandments did God give on the stone tablets?",
+      answer: "10",
+      choices: ["10", "12", "7", "40"],
+      spokenText: "How many commandments did God give on the stone tablets?",
+      supportText: "These commandments were given through Moses.",
+      ruleText: "God gave 10 commandments.",
+      strongHintText: "The correct number is 10.",
+      historyText: "Bible Facts - Ten Commandments",
+    },
+    {
+      id: "facts-10",
+      level: 2,
+      questionText: "How many people from Noah's family were on the ark?",
+      displayText: "How many people from Noah's family were on the ark?",
+      answer: "8",
+      choices: ["8", "6", "10", "12"],
+      spokenText: "How many people from Noah's family were on the ark?",
+      supportText: "Think of Noah, his wife, his three sons, and their wives.",
+      ruleText: "There were 8 people from Noah's family on the ark.",
+      strongHintText: "The correct number is 8.",
+      historyText: "Bible Facts - Noah's family",
+    },
+    {
+      id: "facts-11",
+      level: 3,
+      questionText: "Which apostle wrote many New Testament letters?",
+      displayText: "Which apostle wrote many New Testament letters?",
+      answer: "Paul",
+      choices: ["Paul", "Moses", "David", "Luke"],
+      spokenText: "Which apostle wrote many New Testament letters?",
+      supportText: "This apostle was once called Saul.",
+      ruleText: "Paul wrote many letters in the New Testament.",
+      strongHintText: "The answer is Paul.",
+      historyText: "Bible Facts - New Testament letters",
+    },
+    {
+      id: "facts-12",
+      level: 3,
+      questionText: "Which book tells about the early church after the Gospels?",
+      displayText: "Which book tells about the early church after the Gospels?",
+      answer: "Acts",
+      choices: ["Acts", "Romans", "Hebrews", "Psalms"],
+      spokenText: "Which book tells about the early church after the Gospels?",
+      supportText: "This book begins right after John.",
+      ruleText: "Acts tells about the early church after the Gospels.",
+      strongHintText: "The answer is Acts.",
+      historyText: "Bible Facts - Acts",
+    },
+  ],
+  "verse-fill": [
+    {
+      id: "verse-1",
+      level: 1,
+      questionText: "Which word completes this verse?",
+      displayText: "The Lord is my shepherd; I shall not ____.\nPsalm 23:1",
+      answer: "want",
+      choices: ["want", "wander", "fear", "sleep"],
+      spokenText: "Which word completes this verse? The Lord is my shepherd; I shall not blank. Psalm 23 verse 1.",
+      supportText: "This verse teaches the Lord's care for His people.",
+      ruleText: "Psalm 23 begins by saying the Lord is our shepherd.",
+      strongHintText: "The missing word is want.",
+      historyText: "Verse Fill-Ins - Psalm 23:1",
+    },
+    {
+      id: "verse-2",
+      level: 1,
+      questionText: "Which word completes this verse?",
+      displayText: "In the beginning, God created the heavens and the ____.\nGenesis 1:1",
+      answer: "earth",
+      choices: ["earth", "sea", "garden", "stars"],
+      spokenText: "Which word completes this verse? In the beginning, God created the heavens and the blank. Genesis 1 verse 1.",
+      supportText: "This is the opening verse of the Bible.",
+      ruleText: "Genesis 1:1 tells us God created the heavens and the earth.",
+      strongHintText: "The missing word is earth.",
+      historyText: "Verse Fill-Ins - Genesis 1:1",
+    },
+    {
+      id: "verse-3",
+      level: 1,
+      questionText: "Which word completes this verse?",
+      displayText: "Children, obey your parents in the Lord, for this is ____.\nEphesians 6:1",
+      answer: "right",
+      choices: ["right", "easy", "fun", "kind"],
+      spokenText: "Which word completes this verse? Children, obey your parents in the Lord, for this is blank. Ephesians 6 verse 1.",
+      supportText: "This verse teaches children to honor God by obeying parents.",
+      ruleText: "Ephesians 6:1 says obedience is right.",
+      strongHintText: "The missing word is right.",
+      historyText: "Verse Fill-Ins - Ephesians 6:1",
+    },
+    {
+      id: "verse-4",
+      level: 1,
+      questionText: "Which word completes this verse?",
+      displayText: "Your word is a lamp to my feet and a light to my ____.\nPsalm 119:105",
+      answer: "path",
+      choices: ["path", "heart", "tent", "home"],
+      spokenText: "Which word completes this verse? Your word is a lamp to my feet and a light to my blank. Psalm 119 verse 105.",
+      supportText: "God's Word guides us like light in the dark.",
+      ruleText: "Psalm 119:105 says God's Word is a light to our path.",
+      strongHintText: "The missing word is path.",
+      historyText: "Verse Fill-Ins - Psalm 119:105",
+    },
+    {
+      id: "verse-5",
+      level: 2,
+      questionText: "Which word completes this verse?",
+      displayText: "Trust in the Lord with all your heart, and do not lean on your own ____.\nProverbs 3:5",
+      answer: "understanding",
+      choices: ["understanding", "strength", "wisdom", "plans"],
+      spokenText: "Which word completes this verse? Trust in the Lord with all your heart, and do not lean on your own blank. Proverbs 3 verse 5.",
+      supportText: "This verse teaches us not to trust our own thinking above God's wisdom.",
+      ruleText: "Proverbs 3:5 warns us not to lean on our own understanding.",
+      strongHintText: "The missing word is understanding.",
+      historyText: "Verse Fill-Ins - Proverbs 3:5",
+    },
+    {
+      id: "verse-6",
+      level: 2,
+      questionText: "Which word completes this verse?",
+      displayText: "For all have sinned and fall short of the glory of ____.\nRomans 3:23",
+      answer: "God",
+      choices: ["God", "man", "heaven", "Moses"],
+      spokenText: "Which word completes this verse? For all have sinned and fall short of the glory of blank. Romans 3 verse 23.",
+      supportText: "This verse reminds us that every person needs salvation.",
+      ruleText: "Romans 3:23 says all have sinned and fall short of the glory of God.",
+      strongHintText: "The missing word is God.",
+      historyText: "Verse Fill-Ins - Romans 3:23",
+    },
+    {
+      id: "verse-7",
+      level: 2,
+      questionText: "Which word completes this verse?",
+      displayText: "But God shows his love for us in that while we were still sinners, Christ died for ____.\nRomans 5:8",
+      answer: "us",
+      choices: ["us", "many", "Israel", "all"],
+      spokenText: "Which word completes this verse? But God shows his love for us in that while we were still sinners, Christ died for blank. Romans 5 verse 8.",
+      supportText: "This verse points to God's love shown in Christ's death.",
+      ruleText: "Romans 5:8 says Christ died for us.",
+      strongHintText: "The missing word is us.",
+      historyText: "Verse Fill-Ins - Romans 5:8",
+    },
+    {
+      id: "verse-8",
+      level: 2,
+      questionText: "Which word completes this verse?",
+      displayText: "For by grace you have been saved through ____.\nEphesians 2:8",
+      answer: "faith",
+      choices: ["faith", "works", "effort", "obedience"],
+      spokenText: "Which word completes this verse? For by grace you have been saved through blank. Ephesians 2 verse 8.",
+      supportText: "Salvation is a gift from God, not something we earn.",
+      ruleText: "Ephesians 2:8 says we are saved through faith.",
+      strongHintText: "The missing word is faith.",
+      historyText: "Verse Fill-Ins - Ephesians 2:8",
+    },
+    {
+      id: "verse-9",
+      level: 3,
+      questionText: "Which word completes this verse?",
+      displayText: "The wages of sin is death, but the free gift of God is eternal life in Christ Jesus our ____.\nRomans 6:23",
+      answer: "Lord",
+      choices: ["Lord", "Savior", "King", "Redeemer"],
+      spokenText: "Which word completes this verse? The wages of sin is death, but the free gift of God is eternal life in Christ Jesus our blank. Romans 6 verse 23.",
+      supportText: "This verse contrasts sin's wages with God's free gift.",
+      ruleText: "Romans 6:23 ends with Christ Jesus our Lord.",
+      strongHintText: "The missing word is Lord.",
+      historyText: "Verse Fill-Ins - Romans 6:23",
+    },
+    {
+      id: "verse-10",
+      level: 3,
+      questionText: "Which word completes this verse?",
+      displayText: "If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all ____.\n1 John 1:9",
+      answer: "unrighteousness",
+      choices: ["unrighteousness", "weakness", "sadness", "confusion"],
+      spokenText: "Which word completes this verse? If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all blank. First John 1 verse 9.",
+      supportText: "This verse speaks of forgiveness and cleansing in Christ.",
+      ruleText: "1 John 1:9 says God cleanses us from all unrighteousness.",
+      strongHintText: "The missing word is unrighteousness.",
+      historyText: "Verse Fill-Ins - 1 John 1:9",
+    },
+    {
+      id: "verse-11",
+      level: 3,
+      questionText: "Which word completes this verse?",
+      displayText: "There is therefore now no condemnation for those who are in Christ ____.\nRomans 8:1",
+      answer: "Jesus",
+      choices: ["Jesus", "grace", "glory", "truth"],
+      spokenText: "Which word completes this verse? There is therefore now no condemnation for those who are in Christ blank. Romans 8 verse 1.",
+      supportText: "This verse points to the believer's safety in Christ.",
+      ruleText: "Romans 8:1 ends with Christ Jesus.",
+      strongHintText: "The missing word is Jesus.",
+      historyText: "Verse Fill-Ins - Romans 8:1",
+    },
+    {
+      id: "verse-12",
+      level: 3,
+      questionText: "Which word completes this verse?",
+      displayText: "All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in ____.\n2 Timothy 3:16",
+      answer: "righteousness",
+      choices: ["righteousness", "kindness", "patience", "music"],
+      spokenText: "Which word completes this verse? All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in blank. Second Timothy 3 verse 16.",
+      supportText: "This verse tells us what Scripture is and what it does.",
+      ruleText: "2 Timothy 3:16 ends with training in righteousness.",
+      strongHintText: "The missing word is righteousness.",
+      historyText: "Verse Fill-Ins - 2 Timothy 3:16",
+    },
+  ],
+};
+
 const state = {
   db: null,
   profiles: [],
@@ -244,6 +788,7 @@ const state = {
   activeSkillId: null,
   lastMathSkillId: null,
   lastGrammarSkillId: null,
+  lastBibleSkillId: null,
   skillPickerExpanded: true,
   headerMenuOpen: false,
   showProfileForm: false,
@@ -254,6 +799,7 @@ const state = {
   lastSuccessLine: "",
   recentSpellingWords: [],
   recentGrammarPrompts: [],
+  recentBiblePrompts: [],
   spellingCurriculumByGrade: {},
   round: { number: 1, solved: 0, target: ROUND_TARGET, completed: false },
   currentProblem: null,
@@ -278,17 +824,19 @@ const retryLines = [
 ];
 const SPELLING_KEY_ROWS = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 const STATIC_SPEECH = {
-  instructions: `Welcome to ${APP_NAME}. First choose or create a learner profile on the home page. Then choose a subject. Math, Spelling, and Grammar are ready now, and more subjects are on the way.`,
-  homeGuide: `Welcome to ${APP_NAME}. First choose or create a learner profile. Then pick a subject below. Math, Spelling, and Grammar are ready now.`,
+  instructions: `Welcome to ${APP_NAME}. First choose or create a learner profile on the home page. Then choose a subject. Math, Spelling, Grammar, and Bible are ready now, and more subjects are on the way.`,
+  homeGuide: `Welcome to ${APP_NAME}. First choose or create a learner profile. Then pick a subject below. Math, Spelling, Grammar, and Bible are ready now.`,
   mathGuide: "Welcome to Math. Select a math skill to work on below. Notice what you last used and what is currently recommended.",
   spellingGuide: "Welcome to Spelling. Listen to the word, spell it carefully, and practice words that match your grade level.",
   grammarGuide: "Welcome to Grammar. Choose a grammar skill below. You can practice capitals, punctuation, parts of speech, and sentence fixing.",
-  createProfile: (name) => `Profile created for ${name}. Now choose a subject like Math, Spelling, or Grammar.`,
-  selectProfile: (name) => `${name} is selected. Now choose a subject like Math, Spelling, or Grammar.`,
+  bibleGuide: "Welcome to Bible. Choose a Bible skill below. You can practice doctrine words, Bible facts, and verse fill-ins.",
+  createProfile: (name) => `Profile created for ${name}. Now choose a subject like Math, Spelling, Grammar, or Bible.`,
+  selectProfile: (name) => `${name} is selected. Now choose a subject like Math, Spelling, Grammar, or Bible.`,
   selectSkill: (title) => `${title} is ready. Let's begin.`,
   promptReady: "Listen carefully and type the answer.",
   spellingPromptReady: "Listen to the word and spell it carefully.",
   grammarPromptReady: "Read the sentence and choose the best grammar answer.",
+  biblePromptReady: "Read the Bible question and choose the best answer.",
 };
 const MUTE_STORAGE_KEY = "sunny-math-muted";
 const LOCAL_SERVER_ORIGIN = "http://localhost:3000";
@@ -433,6 +981,10 @@ function getSkillsForSubject(subjectId = state.activeSubjectId) {
     return GRAMMAR_SKILLS;
   }
 
+  if (subjectId === BIBLE_SUBJECT_ID) {
+    return BIBLE_SKILLS;
+  }
+
   if (subjectId === MATH_SUBJECT_ID) {
     return SKILLS;
   }
@@ -441,7 +993,7 @@ function getSkillsForSubject(subjectId = state.activeSubjectId) {
 }
 
 function getSkillDefinition(skillId, subjectId = state.activeSubjectId) {
-  const allSkills = [...SKILLS, ...GRAMMAR_SKILLS];
+  const allSkills = [...SKILLS, ...GRAMMAR_SKILLS, ...BIBLE_SKILLS];
   return allSkills.find((skill) => skill.id === skillId) || getSkillsForSubject(subjectId)[0] || SKILLS[0];
 }
 
@@ -495,6 +1047,14 @@ function getSkillProgression(subjectId = state.activeSubjectId) {
       { id: "nouns", minimumAttempts: 8, minimumAccuracy: 0.78 },
       { id: "verbs", minimumAttempts: 8, minimumAccuracy: 0.78 },
       { id: "sentence-fix", minimumAttempts: 10, minimumAccuracy: 0.76 },
+    ];
+  }
+
+  if (subjectId === BIBLE_SUBJECT_ID) {
+    return [
+      { id: "doctrine", minimumAttempts: 6, minimumAccuracy: 0.8 },
+      { id: "bible-facts", minimumAttempts: 8, minimumAccuracy: 0.78 },
+      { id: "verse-fill", minimumAttempts: 10, minimumAccuracy: 0.76 },
     ];
   }
 
@@ -570,6 +1130,15 @@ function getSkillIcon(skillId) {
   if (skillId === "sentence-fix") {
     return "fa-screwdriver-wrench";
   }
+  if (skillId === "doctrine") {
+    return "fa-book-bible";
+  }
+  if (skillId === "bible-facts") {
+    return "fa-list-check";
+  }
+  if (skillId === "verse-fill") {
+    return "fa-quote-left";
+  }
   return "fa-table-cells-large";
 }
 
@@ -626,12 +1195,20 @@ function isGrammarView() {
   return state.activeSubjectId === GRAMMAR_SUBJECT_ID;
 }
 
+function isBibleView() {
+  return state.activeSubjectId === BIBLE_SUBJECT_ID;
+}
+
 function isMathSkillId(skillId) {
   return SKILLS.some((skill) => skill.id === skillId);
 }
 
 function isGrammarSkillId(skillId) {
   return GRAMMAR_SKILLS.some((skill) => skill.id === skillId);
+}
+
+function isChoiceView() {
+  return isGrammarView() || isBibleView();
 }
 
 function getRecordSubjectId(record) {
@@ -940,11 +1517,26 @@ function applyRecommendedGrammarDifficulty(profile = state.activeProfile) {
   els.difficulty.value = getRecommendedSpellingDifficulty(profile);
 }
 
+function applyRecommendedBibleDifficulty(profile = state.activeProfile) {
+  if (!profile) {
+    return;
+  }
+
+  els.difficulty.value = getRecommendedSpellingDifficulty(profile);
+}
+
 function rememberGrammarPrompt(promptId) {
   state.recentGrammarPrompts = [
     promptId,
     ...state.recentGrammarPrompts.filter((entry) => entry !== promptId),
   ].slice(0, GRAMMAR_RECENT_LIMIT);
+}
+
+function rememberBiblePrompt(promptId) {
+  state.recentBiblePrompts = [
+    promptId,
+    ...state.recentBiblePrompts.filter((entry) => entry !== promptId),
+  ].slice(0, BIBLE_RECENT_LIMIT);
 }
 
 function getGrammarDifficultyLevel(difficulty) {
@@ -962,6 +1554,21 @@ function getGrammarDifficultyLevel(difficulty) {
 function getGrammarPool(skillId, difficulty) {
   const maxLevel = getGrammarDifficultyLevel(difficulty);
   return (GRAMMAR_PROMPTS[skillId] || []).filter((entry) => {
+    if (difficulty === "easy") {
+      return entry.level === 1;
+    }
+
+    if (difficulty === "medium") {
+      return entry.level <= maxLevel;
+    }
+
+    return true;
+  });
+}
+
+function getBiblePool(skillId, difficulty) {
+  const maxLevel = getGrammarDifficultyLevel(difficulty);
+  return (BIBLE_PROMPTS[skillId] || []).filter((entry) => {
     if (difficulty === "easy") {
       return entry.level === 1;
     }
@@ -1001,6 +1608,20 @@ function pickGrammarEntry(skillId, difficulty) {
 
   const entry = chooseRandom(candidates.length > 0 ? candidates : pool);
   rememberGrammarPrompt(entry.id);
+  return entry;
+}
+
+function pickBibleEntry(skillId, difficulty) {
+  const pool = getBiblePool(skillId, difficulty);
+  const currentPromptId = state.currentProblem?.promptId;
+  let candidates = pool.filter((entry) => !state.recentBiblePrompts.includes(entry.id) && entry.id !== currentPromptId);
+
+  if (candidates.length === 0) {
+    candidates = pool.filter((entry) => entry.id !== currentPromptId);
+  }
+
+  const entry = chooseRandom(candidates.length > 0 ? candidates : pool);
+  rememberBiblePrompt(entry.id);
   return entry;
 }
 
@@ -1140,6 +1761,42 @@ function buildGrammarProblem(skillId, difficulty) {
 function getGrammarHintMessage(problem) {
   if (problem.hintLevel === 0) {
     return "Need help? Tap Hint for a grammar rule reminder.";
+  }
+
+  if (problem.hintLevel === 1) {
+    return problem.ruleText;
+  }
+
+  return problem.strongHintText;
+}
+
+function buildBibleProblem(skillId, difficulty) {
+  const entry = pickBibleEntry(skillId, difficulty);
+
+  return {
+    subjectId: BIBLE_SUBJECT_ID,
+    skillId,
+    difficulty,
+    promptId: entry.id,
+    answer: entry.answer,
+    questionText: entry.questionText,
+    displayText: entry.displayText,
+    promptText: entry.questionText,
+    spokenText: entry.spokenText,
+    historyText: entry.historyText,
+    choices: shuffle(entry.choices),
+    ruleText: entry.ruleText,
+    supportText: entry.supportText,
+    strongHintText: entry.strongHintText,
+    hintLevel: 0,
+    hadMistake: false,
+    usedHint: false,
+  };
+}
+
+function getBibleHintMessage(problem) {
+  if (problem.hintLevel === 0) {
+    return "Need help? Tap Hint for a Bible clue.";
   }
 
   if (problem.hintLevel === 1) {
@@ -1368,6 +2025,9 @@ function renderSubjectHeader() {
   } else if (subject.id === GRAMMAR_SUBJECT_ID) {
     els.subjectTitleText.textContent = "Grammar Studio";
     els.subjectDescriptionText.textContent = "Practice grammar the traditional way with capitals, punctuation, parts of speech, and sentence repair.";
+  } else if (subject.id === BIBLE_SUBJECT_ID) {
+    els.subjectTitleText.textContent = "Bible Studio";
+    els.subjectDescriptionText.textContent = "Practice doctrine words, Bible facts, and verse fill-ins with guided multiple-choice review.";
   }
 
   if (!state.activeProfile) {
@@ -1479,7 +2139,8 @@ function updateLayout() {
   const inMath = isMathView();
   const inSpelling = isSpellingView();
   const inGrammar = isGrammarView();
-  const needsSkillPicker = inMath || inGrammar;
+  const inBible = isBibleView();
+  const needsSkillPicker = getSkillsForSubject(state.activeSubjectId).length > 0;
   const hasProfile = Boolean(state.activeProfile);
   const hasSkill = Boolean(state.activeSkillId);
   const collapsed = hasSkill && !state.skillPickerExpanded;
@@ -1513,32 +2174,34 @@ function updateLayout() {
   els.toggleSkillPicker.classList.toggle("hidden", !needsSkillPicker || !hasProfile || !hasSkill);
   els.skillPickerBody.classList.toggle("hidden", collapsed);
   els.skillPickerCard.classList.toggle("collapsed", collapsed);
-  els.hintProblem.classList.toggle("hidden", !(inSpelling || inGrammar));
+  els.hintProblem.classList.toggle("hidden", !(inSpelling || isChoiceView()));
   els.spellingHintPanel.classList.toggle("hidden", !inSpelling);
-  els.grammarPanel.classList.toggle("hidden", !inGrammar);
-  els.choicePanel.classList.toggle("hidden", !inGrammar);
-  els.answerForm.classList.toggle("hidden", inGrammar);
+  els.grammarPanel.classList.toggle("hidden", !isChoiceView());
+  els.choicePanel.classList.toggle("hidden", !isChoiceView());
+  els.answerForm.classList.toggle("hidden", isChoiceView());
 
   if (!hasProfile) {
     els.selectedSkillChip.textContent = "No skill selected";
     els.recommendationNote.innerHTML = '<i class="fa-solid fa-lightbulb"></i> Pick a learner to unlock a recommendation.';
     els.lessonBadge.textContent = needsSkillPicker ? "Choose a skill" : "Choose a learner";
-    els.problemText.textContent = inMath ? "4 + 3 = ?" : inSpelling ? "_ _ _ _ _" : "Grammar practice";
-    els.promptLabel.textContent = inMath ? "Solve this problem" : inSpelling ? "Listen and spell this word" : "Choose a grammar skill";
+    els.problemText.textContent = inMath ? "4 + 3 = ?" : inSpelling ? "_ _ _ _ _" : inBible ? "Bible study" : "Grammar practice";
+    els.promptLabel.textContent = inMath ? "Solve this problem" : inSpelling ? "Listen and spell this word" : inBible ? "Choose a Bible skill" : "Choose a grammar skill";
     els.problemHelper.textContent = inMath
       ? STATIC_SPEECH.promptReady
       : inSpelling
         ? STATIC_SPEECH.spellingPromptReady
-        : STATIC_SPEECH.grammarPromptReady;
+        : inBible
+          ? STATIC_SPEECH.biblePromptReady
+          : STATIC_SPEECH.grammarPromptReady;
     if (!state.isMuted) {
       els.voiceStatus.textContent = "Choose a learner to activate the studio voice.";
     }
   } else if (needsSkillPicker && !hasSkill) {
     els.selectedSkillChip.textContent = "No skill selected";
     els.lessonBadge.textContent = "Choose a skill";
-    els.problemText.textContent = inMath ? "Choose a skill" : "Choose a grammar skill";
-    els.promptLabel.textContent = inMath ? "Choose a math skill" : "Choose a grammar skill";
-    els.problemHelper.textContent = inMath ? STATIC_SPEECH.promptReady : STATIC_SPEECH.grammarPromptReady;
+    els.problemText.textContent = inMath ? "Choose a skill" : inBible ? "Choose a Bible skill" : "Choose a grammar skill";
+    els.promptLabel.textContent = inMath ? "Choose a math skill" : inBible ? "Choose a Bible skill" : "Choose a grammar skill";
+    els.problemHelper.textContent = inMath ? STATIC_SPEECH.promptReady : inBible ? STATIC_SPEECH.biblePromptReady : STATIC_SPEECH.grammarPromptReady;
   } else if (inSpelling && !state.currentProblem) {
     els.promptLabel.textContent = "Listen and spell this word";
     els.problemHelper.textContent = STATIC_SPEECH.spellingPromptReady;
@@ -1553,6 +2216,14 @@ function updateLayout() {
     els.problemText.textContent = "Grammar practice";
     els.lessonBadge.textContent = state.activeSkillId ? `${getSkillDefinition(state.activeSkillId, GRAMMAR_SUBJECT_ID).title} - ${capitalize(els.difficulty.value)}` : "Choose a skill";
     els.grammarRuleChip.innerHTML = '<i class="fa-solid fa-book-open"></i> Use Hint to see a grammar rule.';
+    els.grammarExampleText.textContent = "";
+    els.choiceGrid.innerHTML = "";
+  } else if (inBible && !state.currentProblem) {
+    els.promptLabel.textContent = "Choose the best Bible answer";
+    els.problemHelper.textContent = STATIC_SPEECH.biblePromptReady;
+    els.problemText.textContent = "Bible study";
+    els.lessonBadge.textContent = state.activeSkillId ? `${getSkillDefinition(state.activeSkillId, BIBLE_SUBJECT_ID).title} - ${capitalize(els.difficulty.value)}` : "Choose a skill";
+    els.grammarRuleChip.innerHTML = '<i class="fa-solid fa-book-bible"></i> Use Hint to hear a Bible clue.';
     els.grammarExampleText.textContent = "";
     els.choiceGrid.innerHTML = "";
   }
@@ -1703,7 +2374,7 @@ async function refreshDashboard() {
     ? `${BADGES[BADGES.length - 1].title} unlocked`
     : `${profile.stars} / ${nextBadge.requirement} stars to ${nextBadge.title}`;
   renderActivity(answers);
-  renderSkills(activeSubjectId === MATH_SUBJECT_ID || activeSubjectId === GRAMMAR_SUBJECT_ID ? answers : []);
+  renderSkills(getSkillsForSubject(activeSubjectId).length > 0 ? answers : []);
   renderRound();
   updateLayout();
 }
@@ -1887,7 +2558,7 @@ function buildSpellingProblem(difficulty, recentWords = []) {
 
 function renderCurrentProblem() {
   els.lessonCard.classList.toggle("spelling-view", isSpellingView());
-  els.problemText.classList.toggle("grammar-problem-text", isGrammarView());
+  els.problemText.classList.toggle("grammar-problem-text", isChoiceView());
   els.answerRepeatProblem.classList.toggle("hidden", !isSpellingView());
   els.answerHintProblem.classList.toggle("hidden", !isSpellingView());
 
@@ -1971,6 +2642,44 @@ function renderCurrentProblem() {
     return;
   }
 
+  if (isBibleView()) {
+    els.lessonTitle.innerHTML = '<i class="fa-solid fa-cross"></i> Bible Studio';
+    els.promptLabel.textContent = state.currentProblem?.questionText || "Choose the best Bible answer";
+    els.problemHelper.textContent = STATIC_SPEECH.biblePromptReady;
+    els.newProblem.innerHTML = '<i class="fa-solid fa-book-bible"></i> New Question';
+    els.repeatProblem.innerHTML = '<i class="fa-solid fa-volume-high"></i> Read Again';
+    els.hintProblem.classList.remove("hidden");
+    els.grammarPanel.classList.remove("hidden");
+    els.choicePanel.classList.remove("hidden");
+    els.answerForm.classList.add("hidden");
+    els.answerForm.classList.remove("custom-spelling-keyboard");
+    els.spellingHintPanel.classList.add("hidden");
+    els.spellingKeyboard.classList.add("hidden");
+    updateSpellingPreview();
+
+    if (!state.currentProblem) {
+      els.lessonBadge.textContent = state.activeSkillId ? `${getSkillDefinition(state.activeSkillId, BIBLE_SUBJECT_ID).title} - ${capitalize(els.difficulty.value)}` : "Choose a skill";
+      els.problemText.textContent = "Bible study";
+      els.grammarRuleChip.innerHTML = '<i class="fa-solid fa-book-bible"></i> Use Hint to hear a Bible clue.';
+      els.grammarExampleText.textContent = "";
+      els.choiceGrid.innerHTML = "";
+      return;
+    }
+
+    els.lessonBadge.textContent = `${getSkillDefinition(state.activeSkillId, BIBLE_SUBJECT_ID).title} - ${capitalize(state.currentProblem.difficulty)}`;
+    els.problemText.textContent = state.currentProblem.displayText;
+    els.grammarRuleChip.innerHTML = `<i class="fa-solid fa-book-bible"></i> ${getBibleHintMessage(state.currentProblem)}`;
+    els.grammarExampleText.textContent = state.currentProblem.hintLevel > 0
+      ? state.currentProblem.strongHintText
+      : state.currentProblem.supportText;
+    els.choiceGrid.innerHTML = state.currentProblem.choices.map((choice, index) => `
+      <button class="secondary-button choice-button" type="button" data-choice-value="${escapeHtml(choice)}">
+        <strong>${String.fromCharCode(65 + index)}.</strong>${escapeHtml(choice)}
+      </button>
+    `).join("");
+    return;
+  }
+
   els.lessonTitle.innerHTML = '<i class="fa-solid fa-calculator"></i> Math Studio';
   els.promptLabel.textContent = "Solve this problem";
   els.problemHelper.textContent = STATIC_SPEECH.promptReady;
@@ -2001,7 +2710,7 @@ async function createProblem(options = {}) {
     return;
   }
 
-  if ((isMathView() || isGrammarView()) && !state.activeSkillId) {
+  if ((isMathView() || isGrammarView() || isBibleView()) && !state.activeSkillId) {
     setFeedback("Choose a skill first.");
     return;
   }
@@ -2023,12 +2732,14 @@ async function createProblem(options = {}) {
     ? buildSpellingProblem(difficulty, recentSpellingWords)
     : isGrammarView()
       ? buildGrammarProblem(state.activeSkillId, difficulty)
+      : isBibleView()
+        ? buildBibleProblem(state.activeSkillId, difficulty)
       : buildMathProblem(state.activeSkillId, difficulty);
 
   renderCurrentProblem();
   els.answerInput.value = "";
   updateSpellingPreview();
-  if (!isGrammarView() && !usesCustomSpellingKeyboard()) {
+  if (!isChoiceView() && !usesCustomSpellingKeyboard()) {
     els.answerInput.focus();
   }
   setFeedback(
@@ -2036,6 +2747,8 @@ async function createProblem(options = {}) {
       ? STATIC_SPEECH.spellingPromptReady
       : isGrammarView()
         ? STATIC_SPEECH.grammarPromptReady
+        : isBibleView()
+          ? STATIC_SPEECH.biblePromptReady
         : STATIC_SPEECH.promptReady,
   );
 
@@ -2098,9 +2811,11 @@ async function createProfile(event) {
   state.activeSkillId = null;
   state.lastMathSkillId = null;
   state.lastGrammarSkillId = null;
+  state.lastBibleSkillId = null;
   state.skillPickerExpanded = true;
   state.recentSpellingWords = [];
   state.recentGrammarPrompts = [];
+  state.recentBiblePrompts = [];
   resetRound();
   state.currentProblem = null;
   state.currentSessionId = null;
@@ -2119,6 +2834,7 @@ async function selectProfile(profileId) {
   state.showProfileForm = false;
   state.recentSpellingWords = [];
   state.recentGrammarPrompts = [];
+  state.recentBiblePrompts = [];
   resetRound();
   state.currentProblem = null;
   state.currentSessionId = null;
@@ -2162,6 +2878,20 @@ async function selectProfile(profileId) {
       return;
     }
 
+    if (isBibleView()) {
+      state.activeSkillId = state.lastBibleSkillId;
+      state.skillPickerExpanded = !state.activeSkillId;
+      applyRecommendedBibleDifficulty(state.activeProfile);
+      await refreshDashboard();
+      setFeedback(STATIC_SPEECH.selectProfile(state.activeProfile.name));
+      if (state.activeSkillId) {
+        await createProblem();
+      } else {
+        void speak(STATIC_SPEECH.bibleGuide, "bible-guide");
+      }
+      return;
+    }
+
     setFeedback(STATIC_SPEECH.selectProfile(state.activeProfile.name));
     scrollToLearningPaths();
     void speak(STATIC_SPEECH.selectProfile(state.activeProfile.name), "profile-selected-home");
@@ -2180,6 +2910,8 @@ async function selectSkill(skillId) {
     state.lastMathSkillId = skillId;
   } else if (isGrammarView()) {
     state.lastGrammarSkillId = skillId;
+  } else if (isBibleView()) {
+    state.lastBibleSkillId = skillId;
   }
   state.skillPickerExpanded = false;
   resetRound();
@@ -2204,6 +2936,7 @@ function goHome() {
   state.skillPickerExpanded = true;
   state.recentSpellingWords = [];
   state.recentGrammarPrompts = [];
+  state.recentBiblePrompts = [];
   resetRound();
   updateLayout();
   if (!state.isMuted) {
@@ -2233,6 +2966,7 @@ async function openSubject(subjectId, options = {}) {
   state.currentSessionId = null;
   state.recentSpellingWords = [];
   state.recentGrammarPrompts = [];
+  state.recentBiblePrompts = [];
   resetRound();
 
   if (subject.id === MATH_SUBJECT_ID) {
@@ -2246,6 +2980,10 @@ async function openSubject(subjectId, options = {}) {
     state.activeSkillId = state.lastGrammarSkillId;
     state.skillPickerExpanded = !state.activeSkillId;
     applyRecommendedGrammarDifficulty(state.activeProfile);
+  } else if (subject.id === BIBLE_SUBJECT_ID) {
+    state.activeSkillId = state.lastBibleSkillId;
+    state.skillPickerExpanded = !state.activeSkillId;
+    applyRecommendedBibleDifficulty(state.activeProfile);
   } else {
     state.activeSkillId = null;
   }
@@ -2268,12 +3006,14 @@ async function openSubject(subjectId, options = {}) {
       void speak(STATIC_SPEECH.mathGuide, "math-guide", { allowDeferred: true });
     } else if (subject.id === GRAMMAR_SUBJECT_ID && !state.activeSkillId) {
       void speak(STATIC_SPEECH.grammarGuide, "grammar-guide", { allowDeferred: true });
+    } else if (subject.id === BIBLE_SUBJECT_ID && !state.activeSkillId) {
+      void speak(STATIC_SPEECH.bibleGuide, "bible-guide", { allowDeferred: true });
     } else if (subject.id === SPELLING_SUBJECT_ID) {
       await speak(STATIC_SPEECH.spellingGuide, "spelling-guide", { allowDeferred: true });
     }
   }
 
-  if (subject.id === SPELLING_SUBJECT_ID || ((subject.id === MATH_SUBJECT_ID || subject.id === GRAMMAR_SUBJECT_ID) && state.activeSkillId)) {
+  if (subject.id === SPELLING_SUBJECT_ID || ((subject.id === MATH_SUBJECT_ID || subject.id === GRAMMAR_SUBJECT_ID || subject.id === BIBLE_SUBJECT_ID) && state.activeSkillId)) {
     await createProblem();
   }
 }
@@ -2430,16 +3170,16 @@ async function submitAnswer(rawAnswer) {
 
   const rawValue = String(rawAnswer ?? "").trim();
   if (rawValue === "") {
-    setFeedback(isGrammarView() ? "Choose an answer first." : "Type an answer first.");
+    setFeedback(isChoiceView() ? "Choose an answer first." : "Type an answer first.");
     return;
   }
 
   const submittedAnswer = isSpellingView()
     ? rawValue.toLowerCase()
-    : isGrammarView()
+    : isChoiceView()
       ? rawValue
       : Number(rawValue);
-  if (!isSpellingView() && !isGrammarView() && Number.isNaN(submittedAnswer)) {
+  if (!isSpellingView() && !isChoiceView() && Number.isNaN(submittedAnswer)) {
     setFeedback("Please type a number.");
     return;
   }
@@ -2456,17 +3196,17 @@ async function submitAnswer(rawAnswer) {
     await putRecord("profiles", updatedProfile);
     state.activeProfile = updatedProfile;
     const retryLine = chooseRandom(retryLines);
-    setFeedback(`${retryLine} Stay with this same ${isSpellingView() ? "word" : isGrammarView() ? "grammar challenge" : "problem"} and try again.`);
+    setFeedback(`${retryLine} Stay with this same ${isSpellingView() ? "word" : isGrammarView() ? "grammar challenge" : isBibleView() ? "Bible question" : "problem"} and try again.`);
     playTone(false);
     els.answerInput.value = "";
     updateSpellingPreview();
-    if (!isGrammarView() && !usesCustomSpellingKeyboard()) {
+    if (!isChoiceView() && !usesCustomSpellingKeyboard()) {
       els.answerInput.focus();
     }
     renderCurrentProblem();
     await refreshDashboard();
     await speak(retryLine, makeSpeechKey("retry", retryLine));
-    if (isSpellingView() || isGrammarView()) {
+    if (isSpellingView() || isChoiceView()) {
       await speakProblem();
     }
     return;
@@ -2556,7 +3296,7 @@ function handleChoiceGridClick(event) {
 }
 
 function handleHintClick() {
-  if ((!isSpellingView() && !isGrammarView()) || !state.currentProblem) {
+  if ((!isSpellingView() && !isChoiceView()) || !state.currentProblem) {
     return;
   }
 
@@ -2574,6 +3314,24 @@ function handleHintClick() {
     void speak(
       getGrammarHintMessage(state.currentProblem),
       makeSpeechKey("grammar-hint", `${state.currentProblem.promptId}-${state.currentProblem.hintLevel}`),
+    );
+    return;
+  }
+
+  if (isBibleView()) {
+    if (state.currentProblem.hintLevel >= 2) {
+      setFeedback("That is the strongest Bible hint for this question. Read the choices carefully and try again.");
+      void speak("That is the strongest Bible hint for this question. Read the choices carefully and try again.", makeSpeechKey("bible-hint-max", state.currentProblem.promptId));
+      return;
+    }
+
+    state.currentProblem.hintLevel += 1;
+    state.currentProblem.usedHint = true;
+    renderCurrentProblem();
+    setFeedback(getBibleHintMessage(state.currentProblem));
+    void speak(
+      getBibleHintMessage(state.currentProblem),
+      makeSpeechKey("bible-hint", `${state.currentProblem.promptId}-${state.currentProblem.hintLevel}`),
     );
     return;
   }

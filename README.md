@@ -6,7 +6,9 @@ Jennings Learning is a homeschool learning hub with:
 - Shared learner profiles chosen before subjects
 - A live Math path that is ready now
 - A live Spelling path with spoken words and hints
-- Future subject lanes for Grammar, Bible, and more
+- A live Grammar path with guided multiple-choice review
+- A live Bible path with doctrine words, Bible facts, and verse fill-ins
+- Space for more subject lanes in the future
 - Skill cards with last-used history
 - Skill recommendations based on saved learner progress
 - Simple mute toggle for voice playback
@@ -18,7 +20,7 @@ Jennings Learning is a homeschool learning hub with:
 - Spoken spelling practice with clue-based hints
 - Better ElevenLabs voice support through a local server proxy
 
-Right now, Math and Spelling are the built subjects. The app shell is set up so more subjects can be added one at a time without rebuilding the whole experience.
+Right now, Math, Spelling, Grammar, and Bible are built subjects. The app shell is set up so more subjects can be added one at a time without rebuilding the whole experience.
 
 ## Run it
 
